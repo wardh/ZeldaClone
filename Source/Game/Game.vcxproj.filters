@@ -1,0 +1,199 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Precompiled">
+      <UniqueIdentifier>{b07bafa4-d21c-4674-8f50-96a0b05e15ec}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ComponentSystem">
+      <UniqueIdentifier>{b1324844-f33c-4209-ad83-247bec0127fb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Rendering">
+      <UniqueIdentifier>{13143de1-c138-4747-9658-f0b88998053a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ComponentSystem\Collision">
+      <UniqueIdentifier>{7e1f8446-6670-46ee-8f74-6725a5453e09}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ComponentSystem\Base">
+      <UniqueIdentifier>{39a9024c-8f5d-43fd-afa2-102c0d4c121f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ComponentSystem\ModelComponents">
+      <UniqueIdentifier>{5d064314-68fe-46cd-9681-3ce62149172c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="MapCreation">
+      <UniqueIdentifier>{d0cd0d2a-7edd-4d34-9f36-ecacd5cef201}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ComponentSystem\AI">
+      <UniqueIdentifier>{145e9f3b-9a2c-4bdc-a287-1ce7802d2321}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ComponentSystem\Actor">
+      <UniqueIdentifier>{24f190ca-ea1d-4328-b429-a6504c1deecd}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="stdafx.h">
+      <Filter>Precompiled</Filter>
+    </ClInclude>
+    <ClInclude Include="targetver.h">
+      <Filter>Precompiled</Filter>
+    </ClInclude>
+    <ClInclude Include="Game.h" />
+    <ClInclude Include="GameWorld.h" />
+    <ClInclude Include="resource.h">
+      <Filter>Precompiled</Filter>
+    </ClInclude>
+    <ClInclude Include="FloatComponent.h">
+      <Filter>ComponentSystem</Filter>
+    </ClInclude>
+    <ClInclude Include="OpaqueDictionary.h">
+      <Filter>ComponentSystem</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayerControllerComponent.h">
+      <Filter>ComponentSystem</Filter>
+    </ClInclude>
+    <ClInclude Include="PollingStation.h">
+      <Filter>ComponentSystem</Filter>
+    </ClInclude>
+    <ClInclude Include="Synchronizer.h">
+      <Filter>Rendering</Filter>
+    </ClInclude>
+    <ClInclude Include="RenderCommand.h">
+      <Filter>Rendering</Filter>
+    </ClInclude>
+    <ClInclude Include="Circle.h">
+      <Filter>ComponentSystem\Collision</Filter>
+    </ClInclude>
+    <ClInclude Include="CollisionBoxComponent.h">
+      <Filter>ComponentSystem\Collision</Filter>
+    </ClInclude>
+    <ClInclude Include="CollisionComponent.h">
+      <Filter>ComponentSystem\Collision</Filter>
+    </ClInclude>
+    <ClInclude Include="CollisionManager.h">
+      <Filter>ComponentSystem\Collision</Filter>
+    </ClInclude>
+    <ClInclude Include="Component.h">
+      <Filter>ComponentSystem\Base</Filter>
+    </ClInclude>
+    <ClInclude Include="ComponentEnums.h">
+      <Filter>ComponentSystem\Base</Filter>
+    </ClInclude>
+    <ClInclude Include="GameObject.h">
+      <Filter>ComponentSystem\Base</Filter>
+    </ClInclude>
+    <ClInclude Include="Lerp.h">
+      <Filter>ComponentSystem\Base</Filter>
+    </ClInclude>
+    <ClInclude Include="ComponentEvents.h">
+      <Filter>ComponentSystem</Filter>
+    </ClInclude>
+    <ClInclude Include="AnimationComponent.h">
+      <Filter>ComponentSystem\ModelComponents</Filter>
+    </ClInclude>
+    <ClInclude Include="AnimationData.h">
+      <Filter>ComponentSystem\ModelComponents</Filter>
+    </ClInclude>
+    <ClInclude Include="ModelComponent.h">
+      <Filter>ComponentSystem\ModelComponents</Filter>
+    </ClInclude>
+    <ClInclude Include="Renderer.h">
+      <Filter>Rendering</Filter>
+    </ClInclude>
+    <ClInclude Include="RenderLayers.h">
+      <Filter>Rendering</Filter>
+    </ClInclude>
+    <ClInclude Include="Camera.h">
+      <Filter>Rendering</Filter>
+    </ClInclude>
+    <ClInclude Include="ResourceManager.h">
+      <Filter>Rendering</Filter>
+    </ClInclude>
+    <ClInclude Include="TileBlueprints.h">
+      <Filter>MapCreation</Filter>
+    </ClInclude>
+    <ClInclude Include="MovementComponent.h">
+      <Filter>ComponentSystem\Actor</Filter>
+    </ClInclude>
+    <ClInclude Include="StatsComponent.h">
+      <Filter>ComponentSystem\Actor</Filter>
+    </ClInclude>
+    <ClInclude Include="SwordComponent.h">
+      <Filter>ComponentSystem\Actor</Filter>
+    </ClInclude>
+    <ClInclude Include="AIControllerComponent.h">
+      <Filter>ComponentSystem\AI</Filter>
+    </ClInclude>
+    <ClInclude Include="WalkTowardsPlayer.h">
+      <Filter>ComponentSystem\AI</Filter>
+    </ClInclude>
+    <ClInclude Include="Behaviour.h">
+      <Filter>ComponentSystem\AI</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="stdafx.cpp">
+      <Filter>Precompiled</Filter>
+    </ClCompile>
+    <ClCompile Include="Game.cpp" />
+    <ClCompile Include="GameWorld.cpp" />
+    <ClCompile Include="FloatComponent.cpp">
+      <Filter>ComponentSystem</Filter>
+    </ClCompile>
+    <ClCompile Include="PlayerControllerComponent.cpp">
+      <Filter>ComponentSystem</Filter>
+    </ClCompile>
+    <ClCompile Include="PollingStation.cpp">
+      <Filter>ComponentSystem</Filter>
+    </ClCompile>
+    <ClCompile Include="Synchronizer.cpp">
+      <Filter>Rendering</Filter>
+    </ClCompile>
+    <ClCompile Include="CollisionBoxComponent.cpp">
+      <Filter>ComponentSystem\Collision</Filter>
+    </ClCompile>
+    <ClCompile Include="CollisionComponent.cpp">
+      <Filter>ComponentSystem\Collision</Filter>
+    </ClCompile>
+    <ClCompile Include="CollisionManager.cpp">
+      <Filter>ComponentSystem\Collision</Filter>
+    </ClCompile>
+    <ClCompile Include="GameObject.cpp">
+      <Filter>ComponentSystem\Base</Filter>
+    </ClCompile>
+    <ClCompile Include="Component.cpp">
+      <Filter>ComponentSystem\Base</Filter>
+    </ClCompile>
+    <ClCompile Include="AnimationComponent.cpp">
+      <Filter>ComponentSystem\ModelComponents</Filter>
+    </ClCompile>
+    <ClCompile Include="ModelComponent.cpp">
+      <Filter>ComponentSystem\ModelComponents</Filter>
+    </ClCompile>
+    <ClCompile Include="Renderer.cpp">
+      <Filter>Rendering</Filter>
+    </ClCompile>
+    <ClCompile Include="Camera.cpp">
+      <Filter>Rendering</Filter>
+    </ClCompile>
+    <ClCompile Include="ResourceManager.cpp">
+      <Filter>Rendering</Filter>
+    </ClCompile>
+    <ClCompile Include="MovementComponent.cpp">
+      <Filter>ComponentSystem\Actor</Filter>
+    </ClCompile>
+    <ClCompile Include="StatsComponent.cpp">
+      <Filter>ComponentSystem\Actor</Filter>
+    </ClCompile>
+    <ClCompile Include="SwordComponent.cpp">
+      <Filter>ComponentSystem\Actor</Filter>
+    </ClCompile>
+    <ClCompile Include="AIControllerComponent.cpp">
+      <Filter>ComponentSystem\AI</Filter>
+    </ClCompile>
+    <ClCompile Include="WalkTowardsPlayer.cpp">
+      <Filter>ComponentSystem\AI</Filter>
+    </ClCompile>
+    <ClCompile Include="Behaviour.cpp">
+      <Filter>ComponentSystem\AI</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>
