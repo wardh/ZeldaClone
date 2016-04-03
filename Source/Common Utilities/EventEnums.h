@@ -73,6 +73,8 @@ namespace CommonUtilities
 		CHANGE_ANIMATION,
 		COLLISION_BOX_COMPONENT,
 		BULLET_COLLIDED,
+		GIVE_PLAYER_EXPERIENCE,
+		LOCK_MOVEMENT_COMPONENT,
 		//-------------------------------------------------------
 
 		//InternalEvents-----------------------------------------

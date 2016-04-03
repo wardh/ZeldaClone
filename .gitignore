@@ -1,0 +1,9 @@
+*.pdb
+Bin/Launcher_Release.pdb
+*.obj
+*.tlog
+Temp/Launcher/Debug/Launcher.log
+*.lastbuildstate
+Temp/Launcher/Release/Launcher.tlog/link.command.1.tlog
+*.obj
+*.idb

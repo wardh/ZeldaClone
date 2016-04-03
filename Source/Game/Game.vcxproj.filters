@@ -128,6 +128,10 @@
     <ClInclude Include="Behaviour.h">
       <Filter>ComponentSystem\AI</Filter>
     </ClInclude>
+    <ClInclude Include="Level.h" />
+    <ClInclude Include="RenderCommandText.h">
+      <Filter>Rendering</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -195,5 +199,6 @@
     <ClCompile Include="Behaviour.cpp">
       <Filter>ComponentSystem\AI</Filter>
     </ClCompile>
+    <ClCompile Include="Level.cpp" />
   </ItemGroup>
 </Project>

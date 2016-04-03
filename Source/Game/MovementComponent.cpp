@@ -24,6 +24,15 @@ MovementComponent::~MovementComponent()
 void MovementComponent::Update()
 {
 	float deltaTime = CU::EventManager::GetInstance()->GetDeltaTime();
+
+	myLockTime -= deltaTime;
+
+	if (myLockTime >= 0)
+	{
+		return;
+	}
+
+
 	myOldPosition = myParent->GetPosition();
 	float movementSpeed = 10.f;
 	if (myParent->ValueExists<const float*>("MovementSpeed") == true)
@@ -75,7 +84,12 @@ bool MovementComponent::HandleInternalEvent(const CU::PoolPointer<CU::Event>& an
 		myDamageVelocity = damageDirection * PUSH_BACK_STRENGTH;
 	}
 	break;
-
+	case CU::eEvent::LOCK_MOVEMENT_COMPONENT:
+	{
+		GET_EVENT_DATA(anEvent, LockMovementComponentEvent, lockEvent);
+		myLockTime = lockEvent->myTime;
+	}
+		break;
 	default:
 		break;
 	}

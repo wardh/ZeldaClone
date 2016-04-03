@@ -9,9 +9,9 @@
 
 SwordComponent::SwordComponent(GameObject& aGameObject) : Component(aGameObject)
 {
-	mySwordSprite = ResourceManager::GetInstance()->GetSprite("Data/Gfx/Swords/stick.png");
+	mySwordSprite = ResourceManager::GetInstance()->GetSprite("Data/Gfx/Swords/sword.png");
 	mySwordSprite->SetPivot({ 8.f / 64.f, 2.f / 64.f });
-	mySwingTime = 0.2f;
+	mySwingTime = 0.1f;
 	myIsSwinging = false;
 	myCurrentSwingTime = 0;
 	mySwingRotation = 0;
@@ -71,6 +71,7 @@ void SwordComponent::Update()
 		}
 
 		swordSpace.SetPosition(objectSpace.GetPosition()+weaponOffsetFromDirection);
+		int damage = *myParent->GetValue<const int*>("Damage");
 
 		RenderCommand rc;
 		rc.mySprite = mySwordSprite;
@@ -84,7 +85,13 @@ void SwordComponent::Update()
 		damageCircleEvent.SetMyType(CU::eEvent::SPAWN_DAMAGE_CIRCLE);
 		damageCircleEvent.myPosition = (swordSpace.GetPosition() + (swordDamageDirection*40.f));
 		damageCircleEvent.myRadius = 16.f;
+		damageCircleEvent.myDamageAmount = damage;
 		CU::EventManager::GetInstance()->AddEvent(damageCircleEvent);
+
+		LockMovementComponentEvent lockEvent;
+		lockEvent.myTime = 0.08f;
+
+		myParent->HandleInternalEvent(CU::EventManager::GetInstance()->CreateInternalEvent(lockEvent));
 	}
 }
 bool SwordComponent::HandleInternalEvent(const CU::PoolPointer<CU::Event>& anEvent)

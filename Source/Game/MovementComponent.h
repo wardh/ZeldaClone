@@ -24,6 +24,8 @@ private:
 	void MoveUp();
 	void MoveDown();
 
+	float myLockTime;
+
 	Vector2<float> myVelocity;
 	Vector2<float> myMovementDirection;
 	Vector2<float> myOldPosition;

@@ -83,7 +83,7 @@ void CollisionManager::ActorsVsDamageCircles(CU::GrowingArray<GameObject>& someA
 					if (actor->CheckCollision(myCircles[l]) == true)
 					{
 						DamageEvent dmgEvent;
-						dmgEvent.myDamageAmount = 1;
+						dmgEvent.myDamageAmount = myCircles[l].myDamage;
 						dmgEvent.myPosition = myCircles[l].myPosition;
 						someActors[i].HandleInternalEvent(CU::EventManager::GetInstance()->CreateInternalEvent(dmgEvent));
 					}
@@ -133,7 +133,14 @@ void CollisionManager::PlayerVsActors(GameObject& aPlayer, CU::GrowingArray<Game
 			if (actor->CheckCollision(*second) == true)
 			{
 				DamageEvent dmgEvent;
-				dmgEvent.myDamageAmount = 1;
+				if (someActors[i].ValueExists<const int*>("Damage"))
+				{
+					dmgEvent.myDamageAmount = *someActors[i].GetValue<const int*>("Damage");
+				}
+				else
+				{
+					dmgEvent.myDamageAmount = 1;
+				}
 				dmgEvent.myPosition = someActors[i].GetPosition();
 				aPlayer.HandleInternalEvent(CU::EventManager::GetInstance()->CreateInternalEvent(dmgEvent));
 			}
@@ -149,6 +156,7 @@ bool CollisionManager::HandleSpawnDamageCircleEvent(const CU::PoolPointer<CU::Ev
 	CircleStruct circleToAdd;
 	circleToAdd.myPosition = circleEvent->myPosition;
 	circleToAdd.myRadius = circleEvent->myRadius;
+	circleToAdd.myDamage = circleEvent->myDamageAmount;
 	myCircles.Add(circleToAdd);
 	return true;
 }

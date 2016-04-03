@@ -1,5 +1,4 @@
-#include "EventManager.h"
-#include "EventManager.h"
+
 #include "Common Utilities_Precompiled.h"
 #include "EventManager.h"
 #include "Observer.h"

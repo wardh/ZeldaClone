@@ -3,6 +3,7 @@
 #include "tga2d\sprite\sprite.h"
 #include "Camera.h"
 
+
 #define RENDERCOMMAND_BUFFER_SIZE 4096
 Renderer* Renderer::ourInstance = nullptr;
 
@@ -43,6 +44,11 @@ void Renderer::AddRenderCommand(const RenderCommand & aRenderCommand, eRenderLay
 	myRenderCommands[static_cast<int>(aLayer)].Add(aRenderCommand);
 }
 
+void Renderer::AddRenderCommandText(const RenderCommandText & aRenderCommand)
+{
+	myRenderCommandTexts.Add(aRenderCommand);
+}
+
 void Renderer::RenderFrame()
 {
 	for (unsigned short i = 0; i < static_cast<int>(eRenderLayer::MAX_SIZE); i++)
@@ -75,6 +81,16 @@ void Renderer::RenderFrame()
 			}
 		}
 	}
+
+	for (unsigned short i = 0; i < myRenderCommandTexts.Size(); i++)
+	{
+		myFont->myPosition = { myRenderCommandTexts[i].myPosition.x,myRenderCommandTexts[i].myPosition.y };
+		myFont->myColor = { myRenderCommandTexts[i].myColor.x, myRenderCommandTexts[i].myColor.y, myRenderCommandTexts[i].myColor.z, myRenderCommandTexts[i].myColor.w };
+		myFont->myText = myRenderCommandTexts[i].myText;
+		myFont->mySize = myRenderCommandTexts[i].mySize;
+		myFont->Render();
+	}
+
 	CleanUp();
 }
 
@@ -89,12 +105,15 @@ Renderer::~Renderer()
 
 void Renderer::Init()
 {
+	myRenderCommandTexts.Init(128);
 	for (unsigned short i = 0; i < static_cast<int>(eRenderLayer::MAX_SIZE); i++)
 	{
 		myRenderCommands[i].Init(RENDERCOMMAND_BUFFER_SIZE);
 	}
 	myScreenDimensions = CU::EventManager::GetInstance()->GetScreenDimensions();
 	myCamera = Camera::GetInstance();
+
+	myFont = new DX2D::CText("Text/8bit16.ttf_sdf");
 }
 
 void Renderer::CleanUp()
@@ -103,4 +122,5 @@ void Renderer::CleanUp()
 	{
 		myRenderCommands[i].RemoveAll();
 	}
+	myRenderCommandTexts.RemoveAll();
 }

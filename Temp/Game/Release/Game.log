@@ -1,4 +1,2 @@
-﻿  Renderer.cpp
-Renderer.cpp(48): warning C4244: 'argument': conversion from 'int' to 'const unsigned short', possible loss of data
-Renderer.cpp(56): warning C4244: 'argument': conversion from 'int' to 'const unsigned short', possible loss of data
-  Game.vcxproj -> C:\Users\Christoffer Wardh\Desktop\TGAA2D150316\Source\..\Lib\Game_Release.lib
+﻿  SwordComponent.cpp
+  Game.vcxproj -> C:\Users\Christoffer Wardh\Desktop\gitrepos\ZeldaClone\ZeldaClone\Source\..\Lib\Game_Release.lib
