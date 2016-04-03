@@ -1,8 +1,7 @@
 ﻿  '"VersionIncr.exe"' is not recognized as an internal or external command,
   operable program or batch file.
   Generating code
-  5 of 5262 functions ( 0.1%) were compiled, the rest were copied from previous compilation.
-    0 functions were new in current compilation
-    1 functions had inline decision re-evaluated but remain unchanged
+c:\users\christoffer wardh\desktop\gitrepos\zeldaclone\zeldaclone\source\game\playercontrollercomponent.cpp(92): warning C4702: unreachable code
+  All 5483 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
   Finished generating code
-  Launcher.vcxproj -> C:\Users\Christoffer Wardh\Desktop\TGAA2D150316\Source\..\Bin\Launcher_Release.exe
+  Launcher.vcxproj -> C:\Users\Christoffer Wardh\Desktop\gitrepos\ZeldaClone\ZeldaClone\Source\..\Bin\Launcher_Release.exe

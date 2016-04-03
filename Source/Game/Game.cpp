@@ -39,13 +39,7 @@ void CGame::Init(const std::wstring& aVersion)
 	unsigned short windowWidth = 1280;
 	unsigned short windowHeight = 720;
 
-	CU::IDFactory::Create();
-	CU::TimerManager::Create();
-	CU::TimerManager::GetInstance()->Update();
-	CU::EventManager::Create();
-	CU::EventManager::GetInstance()->SetScreenDimensions({ 1280,720 });
-	Camera::Create(windowHeight, windowWidth, { 0,0 });
-	Renderer::Create();
+
     DX2D::SEngineCreateParameters createParameters;
 	createParameters.myActivateDebugSystems = eDebugFeature_Fps | eDebugFeature_Mem | eDebugFeature_Filewatcher | eDebugFeature_Cpu | eDebugFeature_Drawcalls;
     createParameters.myInitFunctionToCall = std::bind( &CGame::InitCallBack, this );
@@ -84,6 +78,16 @@ void CGame::InitCallBack()
 {
 	myInputWrapper = new CU::InputWrapper();
 	myInputWrapper->Init();
+
+	unsigned short windowWidth = 1280;
+	unsigned short windowHeight = 720;
+	CU::IDFactory::Create();
+	CU::TimerManager::Create();
+	CU::TimerManager::GetInstance()->Update();
+	CU::EventManager::Create();
+	CU::EventManager::GetInstance()->SetScreenDimensions({ 1280,720 });
+	Camera::Create(windowHeight, windowWidth, { 0,0 });
+	Renderer::Create();
 
     myGameWorld.Init();
 }

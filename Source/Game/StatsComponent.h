@@ -3,7 +3,9 @@
 #include "tga2d\sprite\sprite.h"
 struct StatsStruct
 {
+	int myLevel;
 	int myMaxHealth;
+	int myDamage;
 	float myMovementSpeed;
 	bool myIsFriendly;
 };
@@ -19,15 +21,22 @@ public:
 	virtual void Destroy();
 
 private:
+
+	void AddExperience(const int& anAmountOfXP);
+
+	int myLevel;
 	int myMaxHealth;
 	int myHealth;
+	int myDamage;
 	float myMovementSpeed;
 	bool myIsAlive;
 	bool myIsFriendly;
 	float myInvulnerableTimer;
 	bool myIsInvulnerable;
 
+	int myExperience;
+	int myMaxExperience;
+
 	DX2D::CSprite* myHealthSprite;
-	DX2D::CSprite* myEmptyHealthSprite;
 };
 

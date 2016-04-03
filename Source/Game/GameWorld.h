@@ -23,10 +23,13 @@ public:
 private:
 
 	bool HandleKeyboardInput(const CU::PoolPointer<CU::Event>& anEvent);
-
+	bool HandleXPEvent(const CU::PoolPointer<CU::Event>& anEvent);
 	void RemoveDeadGameObjects();
 
 	void LoadMap();
+
+	GameObject* myPlayer;
+
 	CU::GrowingArray<TileBlueprint> myTileTypes;
 	CU::GrowingArray<GameObject> myGameObjects;
 	CU::GrowingArray<GameObject> myCollidingTiles;

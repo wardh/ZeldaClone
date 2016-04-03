@@ -178,12 +178,14 @@
     <ClInclude Include="GameObject.h" />
     <ClInclude Include="GameWorld.h" />
     <ClInclude Include="Lerp.h" />
+    <ClInclude Include="Level.h" />
     <ClInclude Include="ModelComponent.h" />
     <ClInclude Include="MovementComponent.h" />
     <ClInclude Include="OpaqueDictionary.h" />
     <ClInclude Include="PlayerControllerComponent.h" />
     <ClInclude Include="PollingStation.h" />
     <ClInclude Include="RenderCommand.h" />
+    <ClInclude Include="RenderCommandText.h" />
     <ClInclude Include="Renderer.h" />
     <ClInclude Include="RenderLayers.h" />
     <ClInclude Include="resource.h" />
@@ -209,6 +211,7 @@
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="GameObject.cpp" />
     <ClCompile Include="GameWorld.cpp" />
+    <ClCompile Include="Level.cpp" />
     <ClCompile Include="ModelComponent.cpp" />
     <ClCompile Include="MovementComponent.cpp" />
     <ClCompile Include="PlayerControllerComponent.cpp" />

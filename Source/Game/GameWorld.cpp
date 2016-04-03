@@ -23,6 +23,8 @@
 #include "../Common Utilities/tinyxml2.h"
 //---------------------
 
+#define NUMBER_OF_GAMEOBJECTS 4096
+
 CGameWorld::CGameWorld()
 {
 }
@@ -36,8 +38,9 @@ CGameWorld::~CGameWorld()
 void CGameWorld::Init()
 {
 	ObserveEvent(CU::eEvent::KEYBOARD_INPUT_EVENT, HANDLE_EVENT_FUNCTION(HandleKeyboardInput));
+	ObserveEvent(CU::eEvent::GIVE_PLAYER_EXPERIENCE, HANDLE_EVENT_FUNCTION(HandleXPEvent));
 
-	myGameObjects.Init(1024);
+	myGameObjects.Init(NUMBER_OF_GAMEOBJECTS);
 	myTileTypes.Init(128);
 	myCollidingTiles.Init(4096);
 	myCosmeticTiles.Init(4096);
@@ -51,11 +54,13 @@ void CGameWorld::Init()
 	stats.myMovementSpeed = 250;
 	stats.myIsFriendly = true;
 	stats.myMaxHealth = 5;
+	stats.myDamage = 2;
+	stats.myLevel = 1;
 	hero.AddComponent(new StatsComponent(hero, stats));
 	hero.SetPosition(Vector2<float>(100, 100));
 	myGameObjects.Add(hero);
 	myCollisionManager.Init();
-
+	myPlayer = &myGameObjects[0];
 	//ENEMY
 	GameObject enemy;
 	enemy.AddComponent(new AIControllerComponent(enemy, new WalkTowardsPlayer()));
@@ -63,6 +68,8 @@ void CGameWorld::Init()
 	enemy.AddComponent(new MovementComponent(enemy));
 	enemy.AddComponent(new ModelComponent(enemy, "Data/Gfx/Enemies/misterFish.png", eRenderLayer::ACTORS));
 	StatsStruct stats2;
+	stats2.myDamage = 1;
+	stats2.myLevel = 1;
 	stats2.myMovementSpeed = 100;
 	stats2.myIsFriendly = false;
 	stats2.myMaxHealth = 3;
@@ -104,6 +111,14 @@ void CGameWorld::Update(float /*aTimeDelta*/)
 	//myCollisionManager.Render();
 	myCollisionManager.Update();
 	RemoveDeadGameObjects();
+
+
+	RenderCommandText rct;
+	rct.myPosition = { 0.1f, 0.2f };
+	rct.myText = "Number of GOs: ";
+	rct.myText = std::to_string(myGameObjects.Size() + myCollidingTiles.Size() + myCosmeticTiles.Size());
+	rct.mySize = 0.5f;
+	Renderer::GetInstance()->AddRenderCommandText(rct);
 }
 
 bool CGameWorld::HandleKeyboardInput(const CU::PoolPointer<CU::Event>& anEvent)
@@ -114,7 +129,7 @@ bool CGameWorld::HandleKeyboardInput(const CU::PoolPointer<CU::Event>& anEvent)
 	{
 	case eKeyboardKeys::KEY_SPACE:
 	{
-		if (keyEvent->myKeyState == eKeyState::PRESSED)
+		if (keyEvent->myKeyState == eKeyState::DOWN)
 		{
 
 			GameObject enemy;
@@ -126,6 +141,8 @@ bool CGameWorld::HandleKeyboardInput(const CU::PoolPointer<CU::Event>& anEvent)
 			stats2.myMovementSpeed = 100;
 			stats2.myIsFriendly = false;
 			stats2.myMaxHealth = 3;
+			stats2.myDamage = 1;
+			stats2.myLevel = 1;
 			enemy.AddComponent(new StatsComponent(enemy, stats2));
 			enemy.SetPosition(Vector2<float>(rand() % 800, rand() % 800));
 			myGameObjects.Add(enemy);
@@ -135,6 +152,16 @@ bool CGameWorld::HandleKeyboardInput(const CU::PoolPointer<CU::Event>& anEvent)
 	default:
 		break;
 	}
+	return true;
+}
+
+bool CGameWorld::HandleXPEvent(const CU::PoolPointer<CU::Event>& anEvent)
+{
+	GET_EVENT_DATA(anEvent, ExperienceEvent, recievedXPEvent);
+	ExperienceEvent xpEvent;
+	xpEvent.myXPAmount = recievedXPEvent->myXPAmount;
+
+	myPlayer->HandleInternalEvent(CU::EventManager::GetInstance()->CreateInternalEvent(xpEvent));
 	return true;
 }
 

@@ -1,2 +1,51 @@
-﻿  SwordComponent.cpp
-  Game.vcxproj -> C:\Users\Christoffer Wardh\Desktop\TGAA2D150316\Source\..\Lib\Game_Debug.lib
+﻿  stdafx.cpp
+c:\users\christoffer wardh\desktop\gitrepos\zeldaclone\zeldaclone\source\game\stdafx.h(16): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+c:\users\christoffer wardh\desktop\gitrepos\zeldaclone\zeldaclone\source\game\stdafx.h(17): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+  WalkTowardsPlayer.cpp
+  Synchronizer.cpp
+  SwordComponent.cpp
+  StatsComponent.cpp
+c:\users\christoffer wardh\desktop\gitrepos\zeldaclone\zeldaclone\source\game\statscomponent.cpp(62): warning C4305: '=': truncation from 'double' to 'float'
+c:\users\christoffer wardh\desktop\gitrepos\zeldaclone\zeldaclone\source\game\statscomponent.cpp(69): warning C4305: '=': truncation from 'double' to 'float'
+  ResourceManager.cpp
+  Renderer.cpp
+  PollingStation.cpp
+  PlayerControllerComponent.cpp
+  MovementComponent.cpp
+  ModelComponent.cpp
+c:\users\christoffer wardh\desktop\gitrepos\zeldaclone\zeldaclone\source\game\modelcomponent.cpp(36): warning C4100: 'aSize': unreferenced formal parameter
+  Level.cpp
+c:\users\christoffer wardh\desktop\gitrepos\zeldaclone\zeldaclone\source\game\level.cpp(14): warning C4100: 'aMapName': unreferenced formal parameter
+c:\users\christoffer wardh\desktop\gitrepos\zeldaclone\zeldaclone\source\game\level.cpp(18): warning C4100: 'aTimeDelta': unreferenced formal parameter
+c:\users\christoffer wardh\desktop\gitrepos\zeldaclone\zeldaclone\source\game\level.cpp(26): warning C4100: 'aMapName': unreferenced formal parameter
+  GameWorld.cpp
+c:\users\christoffer wardh\desktop\gitrepos\zeldaclone\zeldaclone\source\game\gameworld.cpp(147): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\christoffer wardh\desktop\gitrepos\zeldaclone\zeldaclone\source\game\gameworld.cpp(201): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\christoffer wardh\desktop\gitrepos\zeldaclone\zeldaclone\source\game\gameworld.cpp(230): warning C4244: 'argument': conversion from 'int' to 'const unsigned short', possible loss of data
+c:\users\christoffer wardh\desktop\gitrepos\zeldaclone\zeldaclone\source\game\gameworld.cpp(239): warning C4244: 'argument': conversion from 'int' to 'const unsigned short', possible loss of data
+c:\users\christoffer wardh\desktop\gitrepos\zeldaclone\zeldaclone\source\game\gameworld.cpp(247): warning C4244: 'argument': conversion from 'int' to 'const unsigned short', possible loss of data
+c:\users\christoffer wardh\desktop\gitrepos\zeldaclone\zeldaclone\source\game\gameworld.cpp(255): warning C4244: 'argument': conversion from 'int' to 'const unsigned short', possible loss of data
+c:\users\christoffer wardh\desktop\gitrepos\zeldaclone\zeldaclone\source\game\gameworld.cpp(263): warning C4244: 'argument': conversion from 'int' to 'const unsigned short', possible loss of data
+  GameObject.cpp
+c:\users\christoffer wardh\desktop\gitrepos\zeldaclone\zeldaclone\source\game\gameobject.cpp(48): warning C4065: switch statement contains 'default' but no 'case' labels
+  Game.cpp
+  FloatComponent.cpp
+c:\users\christoffer wardh\desktop\gitrepos\zeldaclone\zeldaclone\source\game\floatcomponent.cpp(25): warning C4100: 'anEvent': unreferenced formal parameter
+  Component.cpp
+  CollisionManager.cpp
+c:\users\christoffer wardh\desktop\gitrepos\zeldaclone\zeldaclone\source\game\collisionmanager.cpp(86): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+c:\users\christoffer wardh\desktop\gitrepos\zeldaclone\zeldaclone\source\game\collisionmanager.cpp(138): warning C4244: '=': conversion from 'const int' to 'float', possible loss of data
+  CollisionComponent.cpp
+  CollisionBoxComponent.cpp
+c:\users\christoffer wardh\desktop\gitrepos\zeldaclone\zeldaclone\source\game\collisionboxcomponent.cpp(123): warning C4100: 'anEvent': unreferenced formal parameter
+  Camera.cpp
+  Generating Code...
+c:\users\christoffer wardh\desktop\gitrepos\zeldaclone\zeldaclone\source\game\playercontrollercomponent.cpp(92): warning C4702: unreachable code
+  Compiling...
+  Behaviour.cpp
+  AnimationComponent.cpp
+  AIControllerComponent.cpp
+c:\users\christoffer wardh\desktop\gitrepos\zeldaclone\zeldaclone\source\game\aicontrollercomponent.cpp(85): warning C4100: 'anEvent': unreferenced formal parameter
+c:\users\christoffer wardh\desktop\gitrepos\zeldaclone\zeldaclone\source\game\aicontrollercomponent.cpp(90): warning C4100: 'anEvent': unreferenced formal parameter
+  Generating Code...
+  Game.vcxproj -> C:\Users\Christoffer Wardh\Desktop\gitrepos\ZeldaClone\ZeldaClone\Source\..\Lib\Game_Debug.lib

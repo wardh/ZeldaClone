@@ -1,23 +1,9 @@
-﻿  Collider.cpp
-  ColliderCircle.cpp
-  DebugLines.cpp
+﻿  ColliderCircle.cpp
+  Event.cpp
+  EventBuffer.cpp
   EventManager.cpp
-EventManager.cpp(1): warning C4627: '#include "EventManager.h"': skipped when looking for precompiled header use
-  EventManager.cpp(1): note: Add directive to 'Common Utilities_Precompiled.h' or rebuild precompiled header
-EventManager.cpp(2): warning C4627: '#include "EventManager.h"': skipped when looking for precompiled header use
-  EventManager.cpp(2): note: Add directive to 'Common Utilities_Precompiled.h' or rebuild precompiled header
   InputWrapper.cpp
-  Intersection.cpp
   Observer.cpp
-  RenderBuffer.cpp
-  RenderCommandFont.cpp
-  RenderCommandInstance.cpp
-  RenderCommandLine.cpp
-  SceneRenderCommands.cpp
-  RenderCommandSprite.cpp
-  SingleControllerLog.cpp
-  AnalogueLog.cpp
   ThreadEventData.cpp
   Worker.cpp
-  XboxController.cpp
-  Common Utilities.vcxproj -> C:\Users\Christoffer Wardh\Desktop\TGAA2D150316\Source\..\Lib\Common Utilities_Private Release.lib
+  Common Utilities.vcxproj -> C:\Users\Christoffer Wardh\Desktop\gitrepos\ZeldaClone\ZeldaClone\Source\..\Lib\Common Utilities_Private Release.lib

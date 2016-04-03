@@ -13,6 +13,8 @@
 #include "tga2d\sprite\sprite.h"
 #include "Renderer.h"
 #include "RenderLayers.h"
+#include "RenderCommand.h";
+#include "RenderCommandText.h";
 #define WIN32_LEAN_AND_MEAN             // Exclude rarely-used stuff from Windows headers
 
 

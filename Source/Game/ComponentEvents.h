@@ -60,4 +60,19 @@ public:
 	SpawnDamageCircle() { myEventType = CU::eEvent::SPAWN_DAMAGE_CIRCLE; };
 	Vector2<float> myPosition;
 	float myRadius;
+	int myDamageAmount;
+};
+
+class ExperienceEvent : public CU::Event
+{
+public:
+	ExperienceEvent() { myEventType = CU::eEvent::GIVE_PLAYER_EXPERIENCE; };
+	int myXPAmount;
+};
+
+class LockMovementComponentEvent : public CU::Event
+{
+public:
+	LockMovementComponentEvent() { myEventType = CU::eEvent::LOCK_MOVEMENT_COMPONENT; };
+	float myTime;
 };
