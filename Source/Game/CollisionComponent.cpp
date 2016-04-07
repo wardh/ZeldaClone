@@ -2,14 +2,16 @@
 #include "CollisionComponent.h"
 
 
-CollisionComponent::CollisionComponent(GameObject& aGameObject) : Component(aGameObject)
+CollisionComponent::CollisionComponent(GameObject& aGameObject, eCollisionGroup aCollisionGroup) : Component(aGameObject)
 {
 	myPosition = { 0, 0 };
+	myCollisionGroup = aCollisionGroup;
 }
 
-CollisionComponent::CollisionComponent(GameObject& aGameObject, const Vector2<float>& aCenterPosition) : Component(aGameObject)
+CollisionComponent::CollisionComponent(GameObject& aGameObject, eCollisionGroup aCollisionGroup, const Vector2<float>& aCenterPosition) : Component(aGameObject)
 {
 	myPosition = aCenterPosition;
+	myCollisionGroup = aCollisionGroup;
 }
 
 

@@ -76,3 +76,17 @@ public:
 	LockMovementComponentEvent() { myEventType = CU::eEvent::LOCK_MOVEMENT_COMPONENT; };
 	float myTime;
 };
+
+class TriggerExit : public CU::Event
+{
+public:
+	TriggerExit() { myEventType = CU::eEvent::TRIGGER_EXIT; };
+};
+
+class ChangeLevelEvent : public CU::Event
+{
+public:
+	ChangeLevelEvent() { myEventType = CU::eEvent::CHANGE_LEVEL; };
+	std::string myMapName;
+	Vector2<float> myPosition;
+};

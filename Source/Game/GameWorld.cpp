@@ -8,6 +8,8 @@
 #include "Camera.h"
 #include "PollingStation.h"
 
+#include "Level.h"
+
 //GAMEOBJECT CREATION
 #include "ModelComponent.h"
 #include "MovementComponent.h"
@@ -39,14 +41,11 @@ void CGameWorld::Init()
 {
 	ObserveEvent(CU::eEvent::KEYBOARD_INPUT_EVENT, HANDLE_EVENT_FUNCTION(HandleKeyboardInput));
 	ObserveEvent(CU::eEvent::GIVE_PLAYER_EXPERIENCE, HANDLE_EVENT_FUNCTION(HandleXPEvent));
+	ObserveEvent(CU::eEvent::CHANGE_LEVEL, HANDLE_EVENT_FUNCTION(HandleChangeLevelEvent));
 
-	myGameObjects.Init(NUMBER_OF_GAMEOBJECTS);
-	myTileTypes.Init(128);
-	myCollidingTiles.Init(4096);
-	myCosmeticTiles.Init(4096);
 	GameObject hero("player", "player");
 	hero.AddComponent(new PlayerControllerComponent(hero));
-	hero.AddComponent(new CollisionBoxComponent(hero, { 40, 32 }, { 0,8 }));
+	hero.AddComponent(new CollisionBoxComponent(hero, eCollisionGroup::PLAYER, { 40, 54 }, { 0,8 }));
 	hero.AddComponent(new MovementComponent(hero));
 	hero.AddComponent(new SwordComponent(hero));
 	hero.AddComponent(new AnimationComponent(hero));
@@ -57,68 +56,19 @@ void CGameWorld::Init()
 	stats.myDamage = 2;
 	stats.myLevel = 1;
 	hero.AddComponent(new StatsComponent(hero, stats));
-	hero.SetPosition(Vector2<float>(100, 100));
-	myGameObjects.Add(hero);
-	myCollisionManager.Init();
-	myPlayer = &myGameObjects[0];
-	//ENEMY
-	GameObject enemy;
-	enemy.AddComponent(new AIControllerComponent(enemy, new WalkTowardsPlayer()));
-	enemy.AddComponent(new CollisionBoxComponent(enemy, { 40, 32 }, { 0,8 }));
-	enemy.AddComponent(new MovementComponent(enemy));
-	enemy.AddComponent(new ModelComponent(enemy, "Data/Gfx/Enemies/misterFish.png", eRenderLayer::ACTORS));
-	StatsStruct stats2;
-	stats2.myDamage = 1;
-	stats2.myLevel = 1;
-	stats2.myMovementSpeed = 100;
-	stats2.myIsFriendly = false;
-	stats2.myMaxHealth = 3;
-	enemy.AddComponent(new StatsComponent(enemy, stats2));
-	enemy.SetPosition(Vector2<float>(500, 500));
-	myGameObjects.Add(enemy);
-
-	//----------
-
-
-	LoadMap();
-
+	hero.SetPosition(Vector2<float>(200, 200));
+	myPlayer = hero;
 	DX2D::CEngine::GetInstance()->GetLightManager().SetAmbience(1.f);
 
-
+	myCurrentLevel = new Level();
+	myCurrentLevel->Init("Awakening", &myPlayer, { 30*64,50*64 });
 }
 
 
 
 void CGameWorld::Update(float /*aTimeDelta*/)
 {
-	//mySprite->Render();
-	Camera::GetInstance()->MoveTo(myGameObjects[0].GetPosition());
-	for (unsigned short i = 0; i < myGameObjects.Size(); i++)
-	{
-		myGameObjects[i].Update();
-	}
-	for (unsigned short i = 0; i < myCollidingTiles.Size(); i++)
-	{
-		myCollidingTiles[i].Update();
-	}
-	for (unsigned short i = 0; i < myCosmeticTiles.Size(); i++)
-	{
-		myCosmeticTiles[i].Update();
-	}
-	myCollisionManager.ActorsVsLevelObjects(myGameObjects, myCollidingTiles);
-	myCollisionManager.ActorsVsDamageCircles(myGameObjects);
-	myCollisionManager.PlayerVsActors(myGameObjects[0], myGameObjects);
-	//myCollisionManager.Render();
-	myCollisionManager.Update();
-	RemoveDeadGameObjects();
-
-
-	RenderCommandText rct;
-	rct.myPosition = { 0.1f, 0.2f };
-	rct.myText = "Number of GOs: ";
-	rct.myText = std::to_string(myGameObjects.Size() + myCollidingTiles.Size() + myCosmeticTiles.Size());
-	rct.mySize = 0.5f;
-	Renderer::GetInstance()->AddRenderCommandText(rct);
+	myCurrentLevel->Update();
 }
 
 bool CGameWorld::HandleKeyboardInput(const CU::PoolPointer<CU::Event>& anEvent)
@@ -129,12 +79,12 @@ bool CGameWorld::HandleKeyboardInput(const CU::PoolPointer<CU::Event>& anEvent)
 	{
 	case eKeyboardKeys::KEY_SPACE:
 	{
-		if (keyEvent->myKeyState == eKeyState::DOWN)
+		/*if (keyEvent->myKeyState == eKeyState::DOWN)
 		{
 
 			GameObject enemy;
 			enemy.AddComponent(new AIControllerComponent(enemy, new WalkTowardsPlayer()));
-			enemy.AddComponent(new CollisionBoxComponent(enemy, { 40, 32 }, { 0,8 }));
+			enemy.AddComponent(new CollisionBoxComponent(enemy, eCollisionGroup::ENEMY, { 40, 32 }, { 0,8 }));
 			enemy.AddComponent(new MovementComponent(enemy));
 			enemy.AddComponent(new ModelComponent(enemy, "Data/Gfx/Enemies/misterFish.png", eRenderLayer::ACTORS));
 			StatsStruct stats2;
@@ -146,7 +96,7 @@ bool CGameWorld::HandleKeyboardInput(const CU::PoolPointer<CU::Event>& anEvent)
 			enemy.AddComponent(new StatsComponent(enemy, stats2));
 			enemy.SetPosition(Vector2<float>(rand() % 800, rand() % 800));
 			myGameObjects.Add(enemy);
-		}
+		}*/
 	}
 	break;
 	default:
@@ -161,144 +111,16 @@ bool CGameWorld::HandleXPEvent(const CU::PoolPointer<CU::Event>& anEvent)
 	ExperienceEvent xpEvent;
 	xpEvent.myXPAmount = recievedXPEvent->myXPAmount;
 
-	myPlayer->HandleInternalEvent(CU::EventManager::GetInstance()->CreateInternalEvent(xpEvent));
+	myPlayer.HandleInternalEvent(CU::EventManager::GetInstance()->CreateInternalEvent(xpEvent));
 	return true;
 }
 
-void CGameWorld::RemoveDeadGameObjects()
+bool CGameWorld::HandleChangeLevelEvent(const CU::PoolPointer<CU::Event>& anEvent)
 {
-	for (unsigned short i = 0; i < myGameObjects.Size(); i++)
-	{
-		if (myGameObjects[i].GetShouldBeRemoved() == true)
-		{
-			myGameObjects.RemoveAtIndex(i);
-			--i;
-		}
-	}
-}
+	GET_EVENT_DATA(anEvent, ChangeLevelEvent, levelEvent);
 
-void CGameWorld::LoadMap()
-{
-	tinyxml2::XMLDocument doc;
-	//level01.tmx
-	std::string dir = "Data/Maps/Home.tmx";
-	tinyxml2::XMLError status = doc.LoadFile(dir.c_str());
-	if (status == tinyxml2::XMLError::XML_ERROR_FILE_NOT_FOUND)
-	{
-		DL_ASSERT(dir.c_str());
-	}
-	tinyxml2::XMLElement *rootElement = doc.RootElement();
+	myCurrentLevel->DestroyLevel();
+	myCurrentLevel->Init(levelEvent->myMapName, &myPlayer, levelEvent->myPosition);
 
-	tinyxml2::XMLElement *tileset = rootElement->FirstChildElement("tileset");
-	tinyxml2::XMLElement *tile = tileset->FirstChildElement("tile");
-
-	while (tile != nullptr)
-	{
-		std::string imageName = "Data/Gfx/";
-		imageName += tile->FirstChildElement("image")->Attribute("source");
-		TileBlueprint tileBP;
-		tileBP.mySpriteName = imageName;
-		tileBP.mySpriteSize = Vector2<float>(tile->FirstChildElement("image")->IntAttribute("width"), tile->FirstChildElement("image")->IntAttribute("height"));
-		myTileTypes.Add(tileBP);
-
-		tile = tile->NextSiblingElement("tile");
-	}
-	tinyxml2::XMLElement *layerElement = rootElement->FirstChildElement("layer");
-
-	while (layerElement != nullptr)
-	{
-		std::string layerName = layerElement->Attribute("name");
-
-		myMapDimensions.x = layerElement->IntAttribute("width");
-		myMapDimensions.y = layerElement->IntAttribute("height");
-
-		short currentWidth = 0;
-		short currentHeight = 0;
-		short tileCount = 0;
-		tinyxml2::XMLElement *tileElement = layerElement->FirstChildElement()->FirstChildElement();
-
-		while (tileElement != nullptr)
-		{
-			tileCount++;
-
-			if (tileElement->IntAttribute("gid") > 0)
-			{
-				if (layerName == "Actor")
-				{
-					GameObject newTile("Tile", "tile");
-					CollisionBoxComponent* cbToAdd2 = new CollisionBoxComponent(newTile, { 64, 64 });
-					ModelComponent* mcToAdd2 = new ModelComponent(newTile, myTileTypes[tileElement->IntAttribute("gid") - 1].mySpriteName, myTileTypes[tileElement->IntAttribute("gid") - 1].mySpriteSize, { 0.5f, 0.5f }, eRenderLayer::ACTORS);
-					newTile.AddComponent(cbToAdd2);
-					newTile.AddComponent(mcToAdd2);
-					newTile.SetPosition({ currentWidth * 64.f, currentHeight * 64.f });
-					myCollidingTiles.Add(newTile);
-				}
-				else if (layerName == "Ground")
-				{
-					GameObject newTile("Tile", "tile");
-					ModelComponent* mcToAdd2 = new ModelComponent(newTile, myTileTypes[tileElement->IntAttribute("gid") - 1].mySpriteName, myTileTypes[tileElement->IntAttribute("gid") - 1].mySpriteSize, { 0.5f, 0.5f }, eRenderLayer::GROUND);
-					newTile.AddComponent(mcToAdd2);
-					newTile.SetPosition({ currentWidth * 64.f, currentHeight * 64.f });
-					myCosmeticTiles.Add(newTile);
-				}
-				else if (layerName == "Ground2")
-				{
-					GameObject newTile("Tile", "tile");
-					ModelComponent* mcToAdd2 = new ModelComponent(newTile, myTileTypes[tileElement->IntAttribute("gid") - 1].mySpriteName, myTileTypes[tileElement->IntAttribute("gid") - 1].mySpriteSize, { 0.5f, 0.5f }, eRenderLayer::GROUND2);
-					newTile.AddComponent(mcToAdd2);
-					newTile.SetPosition({ currentWidth * 64.f, currentHeight * 64.f });
-					myCosmeticTiles.Add(newTile);
-				}
-				else if (layerName == "Upper")
-				{
-					GameObject newTile("Tile", "tile");
-					ModelComponent* mcToAdd2 = new ModelComponent(newTile, myTileTypes[tileElement->IntAttribute("gid") - 1].mySpriteName, myTileTypes[tileElement->IntAttribute("gid") - 1].mySpriteSize, { 0.5f, 0.5f }, eRenderLayer::UPPER);
-					newTile.AddComponent(mcToAdd2);
-					newTile.SetPosition({ currentWidth * 64.f, currentHeight * 64.f });
-					myCosmeticTiles.Add(newTile);
-				}
-				else if (layerName == "Top")
-				{
-					GameObject newTile("Tile", "tile");
-					ModelComponent* mcToAdd2 = new ModelComponent(newTile, myTileTypes[tileElement->IntAttribute("gid") - 1].mySpriteName, myTileTypes[tileElement->IntAttribute("gid") - 1].mySpriteSize, { 0.5f, 0.5f }, eRenderLayer::TOP);
-					newTile.AddComponent(mcToAdd2);
-					newTile.SetPosition({ currentWidth * 64.f, currentHeight * 64.f });
-					myCosmeticTiles.Add(newTile);
-				}
-
-			}
-
-			currentWidth++;
-			if (currentWidth >= myMapDimensions.x)
-			{
-				currentWidth = 0;
-				currentHeight++;
-			}
-			tileElement = tileElement->NextSiblingElement("tile");
-		}
-
-		layerElement = layerElement->NextSiblingElement();
-	}
-
-	//tinyxml2::XMLElement *objectGroup = rootElement->FirstChildElement("objectgroup");
-	//while (objectGroup != nullptr)
-	//{
-	//	std::string groupName = objectGroup->Attribute("name");
-	//	if (groupName == "Spawns")
-	//	{
-	//		tinyxml2::XMLElement *objectElement = objectGroup->FirstChildElement();
-	//		while (objectElement != nullptr)
-	//		{
-	//			std::string objectName = objectElement->Attribute("name");
-
-	//			if (objectName == "playerspawn")
-	//			{
-	//				//myPlayer->SetPosition({ objectElement->FloatAttribute("x"), objectElement->FloatAttribute("y") });
-	//			}
-	//			objectElement = objectElement->NextSiblingElement();
-	//		}
-
-	//	}
-	//	objectGroup = objectGroup->NextSiblingElement();
-	//}
+	return true;
 }

@@ -75,6 +75,9 @@ namespace CommonUtilities
 		BULLET_COLLIDED,
 		GIVE_PLAYER_EXPERIENCE,
 		LOCK_MOVEMENT_COMPONENT,
+		ADD_COLLISION_BOX_COMPONENT,
+		TRIGGER_EXIT,
+		CHANGE_LEVEL,
 		//-------------------------------------------------------
 
 		//InternalEvents-----------------------------------------

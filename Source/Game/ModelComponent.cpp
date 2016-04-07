@@ -130,5 +130,5 @@ bool ModelComponent::HandleInternalEvent(const CU::PoolPointer<CU::Event>& anEve
 
 void ModelComponent::Destroy()
 {
-	SAFE_DELETE(mySprite);
+
 }

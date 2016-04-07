@@ -3,6 +3,7 @@
 enum class eRenderLayer
 {
 	BOTTOM,
+	GROUND_BLOCK,
 	GROUND,
 	GROUND2,
 	ACTORS,
