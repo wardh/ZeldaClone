@@ -2,13 +2,14 @@
 #include "../Common Utilities/Vector2.h"
 #include "Component.h"
 
+enum eCollisionGroup;
 class CollisionBoxComponent;
 struct CircleStruct;
 class CollisionComponent : public Component
 {
 public:
-	CollisionComponent(GameObject& aGameObject);
-	CollisionComponent(GameObject& aGameObject, const Vector2<float>& aCenterPosition);
+	CollisionComponent(GameObject& aGameObject, eCollisionGroup aCollisionGroup);
+	CollisionComponent(GameObject& aGameObject, eCollisionGroup aCollisionGroup, const Vector2<float>& aCenterPosition);
 
 	~CollisionComponent();
 
@@ -23,7 +24,7 @@ public:
 
 protected:
 	Vector2<float> myPosition;
-
+	eCollisionGroup myCollisionGroup;
 private:
 
 };

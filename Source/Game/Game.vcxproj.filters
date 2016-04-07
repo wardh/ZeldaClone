@@ -132,6 +132,12 @@
     <ClInclude Include="RenderCommandText.h">
       <Filter>Rendering</Filter>
     </ClInclude>
+    <ClInclude Include="CollisionGroups.h">
+      <Filter>ComponentSystem\Collision</Filter>
+    </ClInclude>
+    <ClInclude Include="ExitComponent.h">
+      <Filter>ComponentSystem</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -200,5 +206,8 @@
       <Filter>ComponentSystem\AI</Filter>
     </ClCompile>
     <ClCompile Include="Level.cpp" />
+    <ClCompile Include="ExitComponent.cpp">
+      <Filter>ComponentSystem</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

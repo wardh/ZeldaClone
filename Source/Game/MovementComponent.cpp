@@ -88,6 +88,9 @@ bool MovementComponent::HandleInternalEvent(const CU::PoolPointer<CU::Event>& an
 	{
 		GET_EVENT_DATA(anEvent, LockMovementComponentEvent, lockEvent);
 		myLockTime = lockEvent->myTime;
+		myVelocity = { 0,0 };
+		myWalkedThisFrame = false;
+		myMovementDirection={ 0,0 };
 	}
 		break;
 	default:

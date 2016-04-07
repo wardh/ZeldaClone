@@ -5,8 +5,8 @@
 class CollisionBoxComponent : public CollisionComponent
 {
 public:
-	CollisionBoxComponent(GameObject& aGameObject, const Vector2<float>& someDimensions);
-	CollisionBoxComponent(GameObject& aGameObject, const Vector2<float>& someDimensions, const Vector2<float>& aCenterPosition);
+	CollisionBoxComponent(GameObject& aGameObject, eCollisionGroup aCollisionGroup, const Vector2<float>& someDimensions);
+	CollisionBoxComponent(GameObject& aGameObject, eCollisionGroup aCollisionGroup, const Vector2<float>& someDimensions, const Vector2<float>& aCenterPosition);
 
 	~CollisionBoxComponent();
 	virtual bool CheckCollision(const Vector2<float>& aPosition) const;

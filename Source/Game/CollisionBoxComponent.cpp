@@ -9,7 +9,7 @@
 #include "Camera.h"
 #include "RenderCommand.h"
 
-CollisionBoxComponent::CollisionBoxComponent(GameObject& aGameObject, const Vector2<float>& someDimensions) : CollisionComponent(aGameObject)
+CollisionBoxComponent::CollisionBoxComponent(GameObject& aGameObject, eCollisionGroup aCollisionGroup, const Vector2<float>& someDimensions) : CollisionComponent(aGameObject, aCollisionGroup)
 {
 	myDimensions = someDimensions;
 	Line<float> aLine;
@@ -32,11 +32,10 @@ CollisionBoxComponent::CollisionBoxComponent(GameObject& aGameObject, const Vect
 	myLineVolume.AddLine(aLine);
 
 	myParent->SetValue<CollisionBoxComponent*>("CollisionBoxComponent", this);
-
 	//mySprite = ResourceManager::GetInstance()->GetSprite("../Data/Gfx/debugBox.png", { someDimensions.x, someDimensions.y }, { someDimensions.x / 2.f, someDimensions.y / 2.f });
 }
 
-CollisionBoxComponent::CollisionBoxComponent(GameObject& aGameObject, const Vector2<float>& someDimensions, const Vector2<float>& aCenterPosition) : CollisionComponent(aGameObject, aCenterPosition)
+CollisionBoxComponent::CollisionBoxComponent(GameObject& aGameObject, eCollisionGroup aCollisionGroup, const Vector2<float>& someDimensions, const Vector2<float>& aCenterPosition) : CollisionComponent(aGameObject, aCollisionGroup, aCenterPosition)
 {
 	myDimensions = someDimensions;
 	Line<float> aLine;
@@ -58,6 +57,7 @@ CollisionBoxComponent::CollisionBoxComponent(GameObject& aGameObject, const Vect
 	aLine.InitWith2Points(position4, position1);
 	myLineVolume.AddLine(aLine);
 	myParent->SetValue<CollisionBoxComponent*>("CollisionBoxComponent", this);
+
 }
 
 CollisionBoxComponent::~CollisionBoxComponent()

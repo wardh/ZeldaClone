@@ -169,10 +169,12 @@
     <ClInclude Include="Circle.h" />
     <ClInclude Include="CollisionBoxComponent.h" />
     <ClInclude Include="CollisionComponent.h" />
+    <ClInclude Include="CollisionGroups.h" />
     <ClInclude Include="CollisionManager.h" />
     <ClInclude Include="Component.h" />
     <ClInclude Include="ComponentEnums.h" />
     <ClInclude Include="ComponentEvents.h" />
+    <ClInclude Include="ExitComponent.h" />
     <ClInclude Include="FloatComponent.h" />
     <ClInclude Include="Game.h" />
     <ClInclude Include="GameObject.h" />
@@ -207,6 +209,7 @@
     <ClCompile Include="CollisionComponent.cpp" />
     <ClCompile Include="CollisionManager.cpp" />
     <ClCompile Include="Component.cpp" />
+    <ClCompile Include="ExitComponent.cpp" />
     <ClCompile Include="FloatComponent.cpp" />
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="GameObject.cpp" />

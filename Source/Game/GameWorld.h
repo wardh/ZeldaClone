@@ -12,6 +12,8 @@ namespace DX2D
 	class CCustomShape;
 } 
 
+class Level;
+
 class CGameWorld : CU::Observer
 {
 public:
@@ -24,18 +26,9 @@ private:
 
 	bool HandleKeyboardInput(const CU::PoolPointer<CU::Event>& anEvent);
 	bool HandleXPEvent(const CU::PoolPointer<CU::Event>& anEvent);
-	void RemoveDeadGameObjects();
+	bool HandleChangeLevelEvent(const CU::PoolPointer<CU::Event>& anEvent);
 
-	void LoadMap();
+	Level* myCurrentLevel;
 
-	GameObject* myPlayer;
-
-	CU::GrowingArray<TileBlueprint> myTileTypes;
-	CU::GrowingArray<GameObject> myGameObjects;
-	CU::GrowingArray<GameObject> myCollidingTiles;
-	CU::GrowingArray<GameObject> myCosmeticTiles;
-	CollisionManager myCollisionManager;
-	Vector2<int> myMapDimensions;
-
-	
+	GameObject myPlayer;
 };
