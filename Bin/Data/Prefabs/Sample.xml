@@ -1,0 +1,30 @@
+GameObject enemy;
+    enemy.AddComponent(new AIControllerComponent(enemy, new WalkTowardsPlayer()));
+    enemy.AddComponent(new CollisionBoxComponent(enemy, eCollisionGroup::ENEMY, { 40, 32 }, { 0,8 }));
+    enemy.AddComponent(new MovementComponent(enemy));
+    enemy.AddComponent(new ModelComponent(enemy, "Data/Gfx/Enemies/misterFish.png", eRenderLayer::ACTORS));
+    StatsStruct stats2;
+    stats2.myMovementSpeed = 100;
+    stats2.myIsFriendly = false;
+    stats2.myMaxHealth = 3;
+    stats2.myDamage = 1;
+    stats2.myLevel = 1;
+    enemy.AddComponent(new StatsComponent(enemy, stats2));
+
+    <AIControllerComponent behaviour="WalkTowardsPlayer"/>
+    <CollisionBoxComponent group="enemy" sizeX="40" sizeY="32" centerX="0" centerY="8"/>
+    <-- Groups: player, enemy, tile, exit-->
+    <MovementComponent/>
+    <ModelComponent path="Data/Gfx/Enemies/misterFish.png" layer="actors"/>
+    Layers:v
+    BOTTOM,
+    GROUND_BLOCK,
+    GROUND,
+  	GROUND2,
+    ACTORS,
+    UPPER,
+    TOP,
+    GUI,
+
+    <StatsComponent movementSpeed="100" isFriendly="false" health="3" damage="1" level="1"/>
+    <SwordComponent path="Data/Gfx/Enemies/misterFish.png" reach="30" swingTime="0.5" />

@@ -10,8 +10,6 @@
 CollisionManager::CollisionManager()
 {
 
-	//myDamageCircle = ResourceManager::GetInstance()->GetSprite("../Data/Gfx/debug/debugCircle32x32.png", { 32, 32 }, { 16, 16 });
-
 }
 
 
@@ -23,7 +21,7 @@ CollisionManager::~CollisionManager()
 
 void CollisionManager::CleanUp()
 {
-	
+
 }
 
 void CollisionManager::Init()
@@ -85,7 +83,7 @@ void CollisionManager::PlayerVsDamageCircles(GameObject & aPlayer)
 				{
 					DamageEvent dmgEvent;
 					dmgEvent.myDamageAmount = myCircles[l].myDamage;
-					dmgEvent.myPosition = myCircles[l].myPosition;
+					dmgEvent.myPosition = myCircles[l].myActorPosition;
 					aPlayer.HandleInternalEvent(CU::EventManager::GetInstance()->CreateInternalEvent(dmgEvent));
 				}
 			}
@@ -126,20 +124,22 @@ void CollisionManager::ActorsVsDamageCircles(CU::GrowingArray<GameObject>& someA
 		{
 			if (Length2(someActors[i].GetPosition() - myCircles[l].myPosition) < COLLISION_CULLING_RANGE*COLLISION_CULLING_RANGE)
 			{
-				if (*someActors[i].GetValue<const bool*>("IsFriendly") != myCircles[l].myIsFriendly)
+				if (someActors[i].ValueExists<const bool*>("IsFriendly") == true)
 				{
-					CollisionBoxComponent* actor = someActors[i].GetValue<CollisionBoxComponent*>("CollisionBoxComponent");
-
-					if (actor->CheckCollision(myCircles[l]) == true)
+					if (*someActors[i].GetValue<const bool*>("IsFriendly") != myCircles[l].myIsFriendly)
 					{
-						DamageEvent dmgEvent;
-						dmgEvent.myDamageAmount = myCircles[l].myDamage;
-						dmgEvent.myPosition = myCircles[l].myPosition;
-						someActors[i].HandleInternalEvent(CU::EventManager::GetInstance()->CreateInternalEvent(dmgEvent));
+						CollisionBoxComponent* actor = someActors[i].GetValue<CollisionBoxComponent*>("CollisionBoxComponent");
+
+						if (actor->CheckCollision(myCircles[l]) == true)
+						{
+							DamageEvent dmgEvent;
+							dmgEvent.myDamageAmount = myCircles[l].myDamage;
+							dmgEvent.myPosition = myCircles[l].myActorPosition;
+							someActors[i].HandleInternalEvent(CU::EventManager::GetInstance()->CreateInternalEvent(dmgEvent));
+						}
 					}
 				}
 			}
-
 		}
 	}
 }
@@ -189,10 +189,20 @@ void CollisionManager::PlayerVsActors(GameObject& aPlayer, CU::GrowingArray<Game
 				}
 				else
 				{
-					dmgEvent.myDamageAmount = 1;
+					dmgEvent.myDamageAmount = 0;
 				}
 				dmgEvent.myPosition = someActors[i].GetPosition();
-				aPlayer.HandleInternalEvent(CU::EventManager::GetInstance()->CreateInternalEvent(dmgEvent));
+				if (dmgEvent.myDamageAmount != 0)
+				{
+					aPlayer.HandleInternalEvent(CU::EventManager::GetInstance()->CreateInternalEvent(dmgEvent));
+				}
+				else
+				{
+					CollisionBoxEvent boxEvent;
+					boxEvent.myCollisionBoxComponent = second;
+					aPlayer.HandleInternalEvent(CU::EventManager::GetInstance()->CreateInternalEvent(boxEvent));
+
+				}
 			}
 		}
 	}
@@ -226,6 +236,8 @@ bool CollisionManager::HandleSpawnDamageCircleEvent(const CU::PoolPointer<CU::Ev
 	circleToAdd.myPosition = circleEvent->myPosition;
 	circleToAdd.myRadius = circleEvent->myRadius;
 	circleToAdd.myDamage = circleEvent->myDamageAmount;
+	circleToAdd.myIsFriendly = circleEvent->myIsFriendly;
+	circleToAdd.myActorPosition = circleEvent->myActorPosition;
 	myCircles.Add(circleToAdd);
 	return true;
 }

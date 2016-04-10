@@ -59,8 +59,11 @@ class SpawnDamageCircle : public CU::Event
 public:
 	SpawnDamageCircle() { myEventType = CU::eEvent::SPAWN_DAMAGE_CIRCLE; };
 	Vector2<float> myPosition;
+	Vector2<float> myActorPosition;
 	float myRadius;
 	int myDamageAmount;
+	bool myIsFriendly;
+
 };
 
 class ExperienceEvent : public CU::Event

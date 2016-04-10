@@ -1,1 +1,77 @@
-﻿  DX2DEngine.vcxproj -> C:\Users\Christoffer Wardh\Desktop\gitrepos\ZeldaClone\ZeldaClone\Source\..\Lib\DX2DEngine_Debug.lib
+﻿  stdafx.cpp
+  windows_window.cpp
+c:\users\christoffer wardh\desktop\gitrepos\zeldaclone\zeldaclone\source\dx2dengine\source\windows\windows_window.cpp(37): warning C4838: conversion from 'unsigned int' to 'LONG' requires a narrowing conversion
+  video_instance.cpp
+c:\users\christoffer wardh\desktop\gitrepos\zeldaclone\zeldaclone\source\dx2dengine\source\video\video_instance.cpp(80): warning C4458: declaration of 'hr' hides class member
+  c:\users\christoffer wardh\desktop\gitrepos\zeldaclone\zeldaclone\source\dx2dengine\tga2d\video\video_instance.h(47): note: see declaration of 'DX2D::CVideoInstance::hr'
+c:\users\christoffer wardh\desktop\gitrepos\zeldaclone\zeldaclone\source\dx2dengine\source\video\video_instance.cpp(353): warning C4456: declaration of 'pValue' hides previous local declaration
+  c:\users\christoffer wardh\desktop\gitrepos\zeldaclone\zeldaclone\source\dx2dengine\source\video\video_instance.cpp(318): note: see declaration of 'pValue'
+  video.cpp
+  texture_manager.cpp
+c:\program files\windows kits\8.1\include\um\gdiplusheaders.h(695): warning C4458: declaration of 'nativeCap' hides class member
+  c:\program files\windows kits\8.1\include\um\gdiplusheaders.h(710): note: see declaration of 'Gdiplus::CustomLineCap::nativeCap'
+c:\program files\windows kits\8.1\include\um\gdiplusimageattributes.h(364): warning C4458: declaration of 'nativeImageAttr' hides class member
+  c:\program files\windows kits\8.1\include\um\gdiplusimageattributes.h(378): note: see declaration of 'Gdiplus::ImageAttributes::nativeImageAttr'
+c:\program files\windows kits\8.1\include\um\gdiplusmatrix.h(296): warning C4458: declaration of 'nativeMatrix' hides class member
+  c:\program files\windows kits\8.1\include\um\gdiplusmatrix.h(310): note: see declaration of 'Gdiplus::Matrix::nativeMatrix'
+c:\program files\windows kits\8.1\include\um\gdiplusbrush.h(91): warning C4458: declaration of 'nativeBrush' hides class member
+  c:\program files\windows kits\8.1\include\um\gdiplusbrush.h(104): note: see declaration of 'Gdiplus::Brush::nativeBrush'
+c:\program files\windows kits\8.1\include\um\gdipluspen.h(462): warning C4458: declaration of 'nativePen' hides class member
+  c:\program files\windows kits\8.1\include\um\gdipluspen.h(476): note: see declaration of 'Gdiplus::Pen::nativePen'
+c:\program files\windows kits\8.1\include\um\gdipluspath.h(884): warning C4458: declaration of 'nativePath' hides class member
+  c:\program files\windows kits\8.1\include\um\gdipluspath.h(898): note: see declaration of 'Gdiplus::GraphicsPath::nativePath'
+c:\program files\windows kits\8.1\include\um\gdipluspath.h(1071): warning C4458: declaration of 'nativeIterator' hides class member
+  c:\program files\windows kits\8.1\include\um\gdipluspath.h(1085): note: see declaration of 'Gdiplus::GraphicsPathIterator::nativeIterator'
+c:\program files\windows kits\8.1\include\um\gdiplusregion.h(506): warning C4458: declaration of 'nativeRegion' hides class member
+  c:\program files\windows kits\8.1\include\um\gdiplusheaders.h(171): note: see declaration of 'Gdiplus::Region::nativeRegion'
+c:\program files\windows kits\8.1\include\um\gdiplusbitmap.h(536): warning C4458: declaration of 'nativeImage' hides class member
+  c:\program files\windows kits\8.1\include\um\gdiplusheaders.h(492): note: see declaration of 'Gdiplus::Image::nativeImage'
+  texture.cpp
+  token.cpp
+  textfile.cpp
+  text_service.cpp
+  text.cpp
+  parser.cpp
+  fontfile.cpp
+  textured_quad_batch.cpp
+  textured_quad.cpp
+  sprite_batch.cpp
+  sprite.cpp
+  shader_normal_instanced.cpp
+  shader_normal.cpp
+  shader_distance_field_instanced.cpp
+  shader.cpp
+  renderer.cpp
+  Generating Code...
+c:\users\christoffer wardh\desktop\gitrepos\zeldaclone\zeldaclone\source\dx2dengine\source\sprite\sprite.cpp(123): warning C4172: returning address of local variable or temporary
+  Compiling...
+  render_object.cpp
+  line_primitive.cpp
+  custom_shape.cpp
+  perlin_noise.cpp
+  common_math.cpp
+  light_manager.cpp
+  light.cpp
+  file_watcher.cpp
+  error_manager.cpp
+  engine.cpp
+  textured_quad_drawer.cpp
+  textured_quad_batch_drawer.cpp
+  line_drawer.cpp
+  debug_performancegraph.cpp
+  debug_drawer.cpp
+  custom_shape_drawer.cpp
+  direct_3d.cpp
+c:\users\christoffer wardh\desktop\gitrepos\zeldaclone\zeldaclone\source\dx2dengine\source\d3d\direct_3d.cpp(146): warning C4456: declaration of 'i' hides previous local declaration
+  c:\users\christoffer wardh\desktop\gitrepos\zeldaclone\zeldaclone\source\dx2dengine\source\d3d\direct_3d.cpp(100): note: see declaration of 'i'
+c:\users\christoffer wardh\desktop\gitrepos\zeldaclone\zeldaclone\source\dx2dengine\source\d3d\direct_3d.cpp(298): warning C4456: declaration of 'feat_level' hides previous local declaration
+  c:\users\christoffer wardh\desktop\gitrepos\zeldaclone\zeldaclone\source\dx2dengine\source\d3d\direct_3d.cpp(281): note: see declaration of 'feat_level'
+c:\users\christoffer wardh\desktop\gitrepos\zeldaclone\zeldaclone\source\dx2dengine\source\d3d\direct_3d.cpp(300): warning C4456: declaration of 'creationFlags' hides previous local declaration
+  c:\users\christoffer wardh\desktop\gitrepos\zeldaclone\zeldaclone\source\dx2dengine\source\d3d\direct_3d.cpp(273): note: see declaration of 'creationFlags'
+c:\users\christoffer wardh\desktop\gitrepos\zeldaclone\zeldaclone\source\dx2dengine\source\d3d\direct_3d.cpp(578): warning C4456: declaration of 'errorMessage' hides previous local declaration
+  c:\users\christoffer wardh\desktop\gitrepos\zeldaclone\zeldaclone\source\dx2dengine\source\d3d\direct_3d.cpp(562): note: see declaration of 'errorMessage'
+  WICTextureLoader.cpp
+  ScreenGrab.cpp
+  DDSTextureLoader.cpp
+  Generating Code...
+  DX2DEngine.vcxproj -> C:\Users\Christoffer Wardh\Desktop\gitRepos\ZeldaClone\ZeldaClone\Source\..\Lib\DX2DEngine_Debug.lib

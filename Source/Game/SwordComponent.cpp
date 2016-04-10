@@ -7,6 +7,8 @@
 
 #include "../Common Utilities/EventManager.h"
 
+
+
 SwordComponent::SwordComponent(GameObject& aGameObject) : Component(aGameObject)
 {
 	mySwordSprite = ResourceManager::GetInstance()->GetSprite("Data/Gfx/Swords/sword.png");
@@ -15,6 +17,22 @@ SwordComponent::SwordComponent(GameObject& aGameObject) : Component(aGameObject)
 	myIsSwinging = false;
 	myCurrentSwingTime = 0;
 	mySwingRotation = 0;
+	myReach = 44;
+	myParent->SetValue<const float*>("SwordReach", &myReach);
+
+}
+
+SwordComponent::SwordComponent(GameObject & aGameObject, const SwordStruct & aSwordStruct) : Component(aGameObject)
+{
+	mySwordSprite = ResourceManager::GetInstance()->GetSprite(aSwordStruct.mySpritePath);
+	mySwordSprite->SetPivot({ 8.f / 64.f, 2.f / 64.f });
+	mySwingTime = aSwordStruct.mySwingTime;
+	myIsSwinging = false;
+	myCurrentSwingTime = 0;
+	mySwingRotation = 0;
+	myReach = aSwordStruct.myReach;
+	myParent->SetValue<const float*>("SwordReach", &myReach);
+
 }
 
 
@@ -83,9 +101,11 @@ void SwordComponent::Update()
 		//CU::Event damageCircle(CU::eEvent::SPAWN_DAMAGE_CIRCLE, (swordSpace.GetPosition() + (swordDamageDirection*40.f)), 16.f);
 		SpawnDamageCircle damageCircleEvent;
 		damageCircleEvent.SetMyType(CU::eEvent::SPAWN_DAMAGE_CIRCLE);
-		damageCircleEvent.myPosition = (swordSpace.GetPosition() + (swordDamageDirection*40.f));
+		damageCircleEvent.myPosition = (swordSpace.GetPosition() + (swordDamageDirection*myReach));
 		damageCircleEvent.myRadius = 16.f;
 		damageCircleEvent.myDamageAmount = damage;
+		damageCircleEvent.myIsFriendly = *myParent->GetValue<const bool*>("IsFriendly");
+		damageCircleEvent.myActorPosition = myParent->GetPosition();
 		CU::EventManager::GetInstance()->AddEvent(damageCircleEvent);
 
 		LockMovementComponentEvent lockEvent;
@@ -113,6 +133,11 @@ bool SwordComponent::HandleInternalEvent(const CU::PoolPointer<CU::Event>& anEve
 	return true;
 }
 
+void SwordComponent::SetData()
+{
+	myParent->SetValue<const float*>("SwordReach", &myReach);
+	myIsSwinging = false;
+}
 void SwordComponent::Destroy()
 {
 

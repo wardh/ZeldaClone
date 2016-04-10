@@ -10,6 +10,8 @@ struct StatsStruct
 	bool myIsFriendly;
 };
 
+
+
 class StatsComponent : public Component
 {
 public:

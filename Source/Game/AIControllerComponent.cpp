@@ -19,6 +19,11 @@ void AIControllerComponent::Update()
 {
 	ActorInfo info;
 	info.myPosition = myParent->GetPosition();
+	if (myParent->ValueExists<const float*>("SwordReach"))
+	{
+		info.mySwordReach = *myParent->GetValue<const float*>("SwordReach");
+	}
+
 	BehaviourStruct behaviour;
 	behaviour = myBehaviour->GetBehaviour(info);
 
@@ -77,6 +82,12 @@ void AIControllerComponent::Update()
 		break;
 	}
 
+	if (behaviour.mySwingSword == true)
+	{
+		CU::Event attackEvent;
+		attackEvent = CU::Event(CU::eEvent::SWING_WEAPON);
+		myParent->HandleInternalEvent(CU::EventManager::GetInstance()->CreateInternalEvent(attackEvent));
+	}
 	
 	//CU::Event directionEvent(CU::eEvent::ACTOR_DIRECTION, myDirection);
 	//myParent->HandleInternalEvent(directionEvent);

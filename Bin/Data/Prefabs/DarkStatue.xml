@@ -1,0 +1,8 @@
+<GameObject tag="DarkStatue">
+  <AIControllerComponent behaviour="SwordBehaviour"/>
+  <CollisionBoxComponent group="enemy" sizeX="40" sizeY="32" centerX="0" centerY="8"/>
+  <MovementComponent/>
+  <ModelComponent path="Data/Gfx/Enemies/darkStatue.png" layer="actors"/>
+  <StatsComponent movementSpeed="100" isFriendly="false" health="10" damage="3" level="1"/>
+  <SwordComponent path="Data/Gfx/Swords/anchor.png" reach="40" swingTime="0.5" />
+</GameObject>

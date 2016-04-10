@@ -28,6 +28,21 @@
     <Filter Include="ComponentSystem\Actor">
       <UniqueIdentifier>{24f190ca-ea1d-4328-b429-a6504c1deecd}</UniqueIdentifier>
     </Filter>
+    <Filter Include="ComponentSystem\FloatComponent">
+      <UniqueIdentifier>{64641c5d-a54b-46b8-9d1a-8829047d98b9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ComponentSystem\ExitComponent">
+      <UniqueIdentifier>{3af2b380-a6eb-4624-b5df-b16f0bc0f20b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ComponentSystem\Player">
+      <UniqueIdentifier>{8143003e-39b6-41c7-801b-ceb4a4dbb1a8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ComponentSystem\Factories">
+      <UniqueIdentifier>{5dc3bfcb-3b77-45a7-9cf7-a85d31549496}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ComponentSystem\AI\Behaviours">
+      <UniqueIdentifier>{2bc10d75-7b31-4cc1-ba89-e47e70a41442}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="stdafx.h">
@@ -40,15 +55,6 @@
     <ClInclude Include="GameWorld.h" />
     <ClInclude Include="resource.h">
       <Filter>Precompiled</Filter>
-    </ClInclude>
-    <ClInclude Include="FloatComponent.h">
-      <Filter>ComponentSystem</Filter>
-    </ClInclude>
-    <ClInclude Include="OpaqueDictionary.h">
-      <Filter>ComponentSystem</Filter>
-    </ClInclude>
-    <ClInclude Include="PlayerControllerComponent.h">
-      <Filter>ComponentSystem</Filter>
     </ClInclude>
     <ClInclude Include="PollingStation.h">
       <Filter>ComponentSystem</Filter>
@@ -122,12 +128,6 @@
     <ClInclude Include="AIControllerComponent.h">
       <Filter>ComponentSystem\AI</Filter>
     </ClInclude>
-    <ClInclude Include="WalkTowardsPlayer.h">
-      <Filter>ComponentSystem\AI</Filter>
-    </ClInclude>
-    <ClInclude Include="Behaviour.h">
-      <Filter>ComponentSystem\AI</Filter>
-    </ClInclude>
     <ClInclude Include="Level.h" />
     <ClInclude Include="RenderCommandText.h">
       <Filter>Rendering</Filter>
@@ -135,9 +135,26 @@
     <ClInclude Include="CollisionGroups.h">
       <Filter>ComponentSystem\Collision</Filter>
     </ClInclude>
-    <ClInclude Include="ExitComponent.h">
-      <Filter>ComponentSystem</Filter>
+    <ClInclude Include="FloatComponent.h">
+      <Filter>ComponentSystem\FloatComponent</Filter>
     </ClInclude>
+    <ClInclude Include="ExitComponent.h">
+      <Filter>ComponentSystem\ExitComponent</Filter>
+    </ClInclude>
+    <ClInclude Include="OpaqueDictionary.h">
+      <Filter>ComponentSystem\Base</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayerControllerComponent.h">
+      <Filter>ComponentSystem\Player</Filter>
+    </ClInclude>
+    <ClInclude Include="GameObjectFactory.h" />
+    <ClInclude Include="Behaviour.h">
+      <Filter>ComponentSystem\AI\Behaviours</Filter>
+    </ClInclude>
+    <ClInclude Include="WalkTowardsPlayer.h">
+      <Filter>ComponentSystem\AI\Behaviours</Filter>
+    </ClInclude>
+    <ClInclude Include="SwordBehaviour.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -145,12 +162,6 @@
     </ClCompile>
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="GameWorld.cpp" />
-    <ClCompile Include="FloatComponent.cpp">
-      <Filter>ComponentSystem</Filter>
-    </ClCompile>
-    <ClCompile Include="PlayerControllerComponent.cpp">
-      <Filter>ComponentSystem</Filter>
-    </ClCompile>
     <ClCompile Include="PollingStation.cpp">
       <Filter>ComponentSystem</Filter>
     </ClCompile>
@@ -199,15 +210,23 @@
     <ClCompile Include="AIControllerComponent.cpp">
       <Filter>ComponentSystem\AI</Filter>
     </ClCompile>
-    <ClCompile Include="WalkTowardsPlayer.cpp">
-      <Filter>ComponentSystem\AI</Filter>
-    </ClCompile>
-    <ClCompile Include="Behaviour.cpp">
-      <Filter>ComponentSystem\AI</Filter>
-    </ClCompile>
     <ClCompile Include="Level.cpp" />
-    <ClCompile Include="ExitComponent.cpp">
-      <Filter>ComponentSystem</Filter>
+    <ClCompile Include="FloatComponent.cpp">
+      <Filter>ComponentSystem\FloatComponent</Filter>
     </ClCompile>
+    <ClCompile Include="ExitComponent.cpp">
+      <Filter>ComponentSystem\ExitComponent</Filter>
+    </ClCompile>
+    <ClCompile Include="PlayerControllerComponent.cpp">
+      <Filter>ComponentSystem\Player</Filter>
+    </ClCompile>
+    <ClCompile Include="GameObjectFactory.cpp" />
+    <ClCompile Include="Behaviour.cpp">
+      <Filter>ComponentSystem\AI\Behaviours</Filter>
+    </ClCompile>
+    <ClCompile Include="WalkTowardsPlayer.cpp">
+      <Filter>ComponentSystem\AI\Behaviours</Filter>
+    </ClCompile>
+    <ClCompile Include="SwordBehaviour.cpp" />
   </ItemGroup>
 </Project>

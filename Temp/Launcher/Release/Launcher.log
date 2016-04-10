@@ -1,8 +1,8 @@
 ﻿  '"VersionIncr.exe"' is not recognized as an internal or external command,
   operable program or batch file.
   Generating code
-  0 of 5636 functions ( 0.0%) were compiled, the rest were copied from previous compilation.
+  0 of 5673 functions ( 0.0%) were compiled, the rest were copied from previous compilation.
     0 functions were new in current compilation
     24 functions had inline decision re-evaluated but remain unchanged
   Finished generating code
-  Launcher.vcxproj -> C:\Users\Christoffer Wardh\Desktop\gitrepos\ZeldaClone\ZeldaClone\Source\..\Bin\Launcher_Release.exe
+  Launcher.vcxproj -> C:\Users\Christoffer Wardh\Desktop\gitRepos\ZeldaClone\ZeldaClone\Source\..\Bin\Launcher_Release.exe

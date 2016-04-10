@@ -5,7 +5,7 @@
 #include "ComponentEnums.h"
 	
 #define GRAVITY 1000.f
-#define PUSH_BACK_STRENGTH 500.f
+#define PUSH_BACK_STRENGTH 1000.f
 
 MovementComponent::MovementComponent(GameObject& aGameObject) : Component(aGameObject)
 {
@@ -52,7 +52,7 @@ void MovementComponent::Update()
 		myParent->HandleInternalEvent(CU::EventManager::GetInstance()->CreateInternalEvent(animationEvent));
 	}
 	myParent->SetPosition(myParent->GetPosition() + (myDamageVelocity*deltaTime));
-	myDamageVelocity -= myDamageVelocity *4.f* deltaTime;
+	myDamageVelocity -= myDamageVelocity *8.f* deltaTime;
 
 	myMovementDirection = { 0, 0 };
 	myWalkedThisFrame = false;

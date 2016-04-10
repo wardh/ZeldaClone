@@ -6,11 +6,13 @@ struct BehaviourStruct
 {
 	eDirections myMoveDirection;
 	bool myShouldWalk;
+	bool mySwingSword = false;
 };
 
 struct ActorInfo
 {
 	Vector2<float> myPosition;
+	float mySwordReach;
 };
 
 class Behaviour

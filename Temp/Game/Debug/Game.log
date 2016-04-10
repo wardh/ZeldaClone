@@ -1,13 +1,2 @@
-﻿  MovementComponent.cpp
-  Level.cpp
-c:\users\christoffer wardh\desktop\gitrepos\zeldaclone\zeldaclone\source\game\level.cpp(60): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-c:\users\christoffer wardh\desktop\gitrepos\zeldaclone\zeldaclone\source\game\level.cpp(164): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-c:\users\christoffer wardh\desktop\gitrepos\zeldaclone\zeldaclone\source\game\level.cpp(193): warning C4244: 'argument': conversion from 'int' to 'const unsigned short', possible loss of data
-c:\users\christoffer wardh\desktop\gitrepos\zeldaclone\zeldaclone\source\game\level.cpp(202): warning C4244: 'argument': conversion from 'int' to 'const unsigned short', possible loss of data
-c:\users\christoffer wardh\desktop\gitrepos\zeldaclone\zeldaclone\source\game\level.cpp(210): warning C4244: 'argument': conversion from 'int' to 'const unsigned short', possible loss of data
-c:\users\christoffer wardh\desktop\gitrepos\zeldaclone\zeldaclone\source\game\level.cpp(218): warning C4244: 'argument': conversion from 'int' to 'const unsigned short', possible loss of data
-c:\users\christoffer wardh\desktop\gitrepos\zeldaclone\zeldaclone\source\game\level.cpp(226): warning C4244: 'argument': conversion from 'int' to 'const unsigned short', possible loss of data
-c:\users\christoffer wardh\desktop\gitrepos\zeldaclone\zeldaclone\source\game\level.cpp(326): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-  GameWorld.cpp
-  Generating Code...
-  Game.vcxproj -> C:\Users\Christoffer Wardh\Desktop\gitrepos\ZeldaClone\ZeldaClone\Source\..\Lib\Game_Debug.lib
+﻿  SwordBehaviour.cpp
+  Game.vcxproj -> C:\Users\Christoffer Wardh\Desktop\gitRepos\ZeldaClone\ZeldaClone\Source\..\Lib\Game_Debug.lib

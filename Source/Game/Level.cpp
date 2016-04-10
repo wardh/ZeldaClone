@@ -13,8 +13,10 @@
 #include "AIControllerComponent.h"
 #include "WalkTowardsPlayer.h"
 #include "ExitComponent.h"
+#include "GameObjectFactory.h"
 
 #define NUMBER_OF_GAMEOBJECTS 4096
+#define NUMBER_OF_TILES 32768
 
 Level::Level()
 {
@@ -32,8 +34,8 @@ void Level::Init(const std::string & aMapName, GameObject* aPlayer, const Vector
 	myCollisionManager.Init();
 	myGameObjects.Init(NUMBER_OF_GAMEOBJECTS);
 	myTileTypes.Init(128);
-	myCollidingTiles.Init(4096);
-	myCosmeticTiles.Init(4096);
+	myCollidingTiles.Init(NUMBER_OF_TILES);
+	myCosmeticTiles.Init(NUMBER_OF_TILES);
 	myExits.Init(8);
 	myPlayer = aPlayer;
 	LoadMap(aMapName);
@@ -45,6 +47,7 @@ void Level::Init(const std::string & aMapName, GameObject* aPlayer, const Vector
 	enemy.AddComponent(new AIControllerComponent(enemy, new WalkTowardsPlayer()));
 	enemy.AddComponent(new CollisionBoxComponent(enemy, eCollisionGroup::ENEMY, { 40, 32 }, { 0,8 }));
 	enemy.AddComponent(new MovementComponent(enemy));
+	enemy.AddComponent(new SwordComponent(enemy));
 	enemy.AddComponent(new ModelComponent(enemy, "Data/Gfx/Enemies/misterFish.png", eRenderLayer::ACTORS));
 	StatsStruct stats2;
 	stats2.myMovementSpeed = 100;
@@ -80,7 +83,7 @@ void Level::Update()
 	myCollisionManager.ActorsVsDamageCircles(myGameObjects);
 	myCollisionManager.PlayerVsActors(*myPlayer, myGameObjects);
 	myCollisionManager.PlayerVsExits(*myPlayer, myExits);
-	myCollisionManager.Render();
+	//myCollisionManager.Render();
 	myCollisionManager.Update();
 	RemoveDeadGameObjects();
 
@@ -267,7 +270,7 @@ void Level::LoadMap(const std::string & aMapName)
 				position.y = objectElement->FloatAttribute("y");
 				size.x = objectElement->FloatAttribute("width");
 				size.y = objectElement->FloatAttribute("height");
-
+				
 				tinyxml2::XMLElement *properties = objectElement->FirstChildElement()->FirstChildElement();
 
 				while (properties != nullptr)
@@ -300,6 +303,34 @@ void Level::LoadMap(const std::string & aMapName)
 			}
 
 		}
+		else if (groupName == "GameObjects")
+		{
+			tinyxml2::XMLElement *objectElement = objectGroup->FirstChildElement();
+			while (objectElement != nullptr)
+			{
+				Vector2<float> position;
+
+				position.x = objectElement->FloatAttribute("x");
+				position.y = objectElement->FloatAttribute("y");
+
+				tinyxml2::XMLElement *properties = objectElement->FirstChildElement()->FirstChildElement();
+
+				while (properties != nullptr)
+				{
+					std::string propertyName = properties->Attribute("name");
+					if (propertyName == "Prefab")
+					{
+						GameObject gameObject = GameObjectFactory::GetInstance()->CreateGameObjectFromFile(properties->Attribute("value"));
+						gameObject.SetPosition(position);
+						myGameObjects.Add(gameObject);
+					}
+
+					properties = properties->NextSiblingElement();
+				}
+
+				objectElement = objectElement->NextSiblingElement();
+			}
+		}
 		objectGroup = objectGroup->NextSiblingElement();
 	}
 	
@@ -316,21 +347,23 @@ bool Level::HandleKeyboardInput(const CU::PoolPointer<CU::Event>& anEvent)
 	{
 		if (keyEvent->myKeyState == eKeyState::DOWN)
 		{
-
-			GameObject enemy;
-			enemy.AddComponent(new AIControllerComponent(enemy, new WalkTowardsPlayer()));
-			enemy.AddComponent(new CollisionBoxComponent(enemy, eCollisionGroup::ENEMY, { 40, 32 }, { 0,8 }));
-			enemy.AddComponent(new MovementComponent(enemy));
-			enemy.AddComponent(new ModelComponent(enemy, "Data/Gfx/Enemies/misterFish.png", eRenderLayer::ACTORS));
-			StatsStruct stats2;
-			stats2.myMovementSpeed = 100;
-			stats2.myIsFriendly = false;
-			stats2.myMaxHealth = 3;
-			stats2.myDamage = 1;
-			stats2.myLevel = 1;
-			enemy.AddComponent(new StatsComponent(enemy, stats2));
-			enemy.SetPosition(Vector2<float>(rand() % 800, rand() % 800));
-			myGameObjects.Add(enemy);
+			GameObject go = GameObjectFactory::GetInstance()->CreateGameObjectFromFile("MisterFish");
+			go.SetPosition(Vector2<float>(rand() % 100, rand() % 100) + Vector2<float>({ 30 * 64, 50 * 64 }));
+			myGameObjects.Add(go);
+			//GameObject enemy;
+			//enemy.AddComponent(new AIControllerComponent(enemy, new WalkTowardsPlayer()));
+			//enemy.AddComponent(new CollisionBoxComponent(enemy, eCollisionGroup::ENEMY, { 40, 32 }, { 0,8 }));
+			//enemy.AddComponent(new MovementComponent(enemy));
+			//enemy.AddComponent(new ModelComponent(enemy, "Data/Gfx/Enemies/misterFish.png", eRenderLayer::ACTORS));
+			//StatsStruct stats2;
+			//stats2.myMovementSpeed = 100;
+			//stats2.myIsFriendly = false;
+			//stats2.myMaxHealth = 3;
+			//stats2.myDamage = 1;
+			//stats2.myLevel = 1;
+			//enemy.AddComponent(new StatsComponent(enemy, stats2));
+			//enemy.SetPosition(Vector2<float>(rand() % 100, rand() % 100) + Vector2<float>({ 30 * 64, 50 * 64 }));
+			//myGameObjects.Add(enemy);
 		}
 	}
 	break;

@@ -1,9 +1,51 @@
-﻿  ColliderCircle.cpp
+﻿  Common Utilities_Precompiled.cpp
+  AnalogueLog.cpp
+  CU_Time.cpp
+  CharInput.cpp
+  Collider.cpp
+  ColliderCircle.cpp
+  DL_Debug.cpp
+  DL_StackWalker.cpp
+  DataFile.cpp
+C:\Program Files\Windows Kits\8.1\Include\um\dbghelp.h(1544): warning C4091: 'typedef ': ignored on left of '' when no variable is declared (compiling source file DL_Debug.cpp)
+C:\Program Files\Windows Kits\8.1\Include\um\dbghelp.h(3190): warning C4091: 'typedef ': ignored on left of '' when no variable is declared (compiling source file DL_Debug.cpp)
+  DebugLines.cpp
   Event.cpp
   EventBuffer.cpp
   EventManager.cpp
+  ID.cpp
+  IDFactory.cpp
   InputWrapper.cpp
+  Intersection.cpp
+  KeyboardEventLog.cpp
+  MemoryStackWalker.cpp
+  MemoryWrapper.cpp
+  MouseEventLog.cpp
+  MurmurHash3.cpp
   Observer.cpp
+  RenderBuffer.cpp
+  RenderCommandFont.cpp
+  RenderCommandInstance.cpp
+  RenderCommandLine.cpp
+  RenderCommandSprite.cpp
+  ResourceUsage.cpp
+  SceneRenderCommands.cpp
+  SingleControllerLog.cpp
+  StackWalker.cpp
+C:\Program Files\Windows Kits\8.1\Include\um\dbghelp.h(1544): warning C4091: 'typedef ': ignored on left of '' when no variable is declared (compiling source file StackWalker.cpp)
+C:\Program Files\Windows Kits\8.1\Include\um\dbghelp.h(3190): warning C4091: 'typedef ': ignored on left of '' when no variable is declared (compiling source file StackWalker.cpp)
+  State.cpp
+  StateStack.cpp
   ThreadEventData.cpp
+  ThreadPool.cpp
+  Timer.cpp
+  TimerManager.cpp
+  Work.cpp
   Worker.cpp
-  Common Utilities.vcxproj -> C:\Users\Christoffer Wardh\Desktop\gitrepos\ZeldaClone\ZeldaClone\Source\..\Lib\Common Utilities_Private Release.lib
+  XMLReader.cpp
+  XMLWriter.cpp
+  XboxController.cpp
+  XboxControllerState.cpp
+  file_watcher.cpp
+  tinyxml2.cpp
+  Common Utilities.vcxproj -> C:\Users\Christoffer Wardh\Desktop\gitRepos\ZeldaClone\ZeldaClone\Source\..\Lib\Common Utilities_Private Release.lib

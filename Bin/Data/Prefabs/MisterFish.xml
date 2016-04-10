@@ -1,0 +1,7 @@
+<GameObject tag="MisterFish">
+  <AIControllerComponent behaviour="WalkTowardsPlayer"/>
+  <CollisionBoxComponent group="enemy" sizeX="40" sizeY="32" centerX="0" centerY="8"/>
+  <MovementComponent/>
+  <ModelComponent path="Data/Gfx/Enemies/misterFish.png" layer="actors"/>
+  <StatsComponent movementSpeed="100" isFriendly="false" health="3" damage="1" level="1"/>
+</GameObject>

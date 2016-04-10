@@ -1,1 +1,3 @@
-﻿  DX2DEngine.vcxproj -> C:\Users\Christoffer Wardh\Desktop\gitrepos\ZeldaClone\ZeldaClone\Source\..\Lib\DX2DEngine_Release.lib
+﻿  windows_window.cpp
+source\windows\windows_window.cpp(37): warning C4838: conversion from 'unsigned int' to 'LONG' requires a narrowing conversion
+  DX2DEngine.vcxproj -> C:\Users\Christoffer Wardh\Desktop\gitRepos\ZeldaClone\ZeldaClone\Source\..\Lib\DX2DEngine_Release.lib

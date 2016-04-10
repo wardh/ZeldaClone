@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" orientation="orthogonal" renderorder="right-down" width="64" height="64" tilewidth="64" tileheight="64" nextobjectid="8">
- <tileset firstgid="1" name="Tiles" tilewidth="64" tileheight="64" tilecount="29">
+<map version="1.0" orientation="orthogonal" renderorder="right-down" width="64" height="64" tilewidth="64" tileheight="64" nextobjectid="12">
+ <tileset firstgid="1" name="Tiles" tilewidth="64" tileheight="64" tilecount="45">
   <tile id="0">
    <image width="64" height="64" source="../Gfx/Tiles/block.png"/>
   </tile>
@@ -88,8 +88,56 @@
   <tile id="28">
    <image width="64" height="64" source="../Gfx/Tiles/voidSide.png"/>
   </tile>
+  <tile id="29">
+   <image width="64" height="64" source="../Gfx/Tiles/altarBotLeft.png"/>
+  </tile>
+  <tile id="30">
+   <image width="64" height="64" source="../Gfx/Tiles/altarBotMid.png"/>
+  </tile>
+  <tile id="31">
+   <image width="64" height="64" source="../Gfx/Tiles/altarBotRight.png"/>
+  </tile>
+  <tile id="32">
+   <image width="64" height="64" source="../Gfx/Tiles/altarLBLeft.png"/>
+  </tile>
+  <tile id="33">
+   <image width="64" height="64" source="../Gfx/Tiles/altarLBMid.png"/>
+  </tile>
+  <tile id="34">
+   <image width="64" height="64" source="../Gfx/Tiles/altarLBRight.png"/>
+  </tile>
+  <tile id="35">
+   <image width="64" height="64" source="../Gfx/Tiles/altarTBLeft.png"/>
+  </tile>
+  <tile id="36">
+   <image width="64" height="64" source="../Gfx/Tiles/altarTBMid.png"/>
+  </tile>
+  <tile id="37">
+   <image width="64" height="64" source="../Gfx/Tiles/altarTBRight.png"/>
+  </tile>
+  <tile id="38">
+   <image width="64" height="64" source="../Gfx/Tiles/altarTopLeft.png"/>
+  </tile>
+  <tile id="39">
+   <image width="64" height="64" source="../Gfx/Tiles/altarTopMid.png"/>
+  </tile>
+  <tile id="40">
+   <image width="64" height="64" source="../Gfx/Tiles/altarTopRight.png"/>
+  </tile>
+  <tile id="41">
+   <image width="64" height="64" source="../Gfx/Tiles/whiteFlowers.png"/>
+  </tile>
+  <tile id="42">
+   <image width="64" height="64" source="../Gfx/Tiles/vine1.png"/>
+  </tile>
+  <tile id="43">
+   <image width="64" height="64" source="../Gfx/Tiles/vine2.png"/>
+  </tile>
+  <tile id="44">
+   <image width="64" height="64" source="../Gfx/Tiles/vine3.png"/>
+  </tile>
  </tileset>
- <tileset firstgid="30" name="Tiles" tilewidth="64" tileheight="64" tilecount="29">
+ <tileset firstgid="46" name="Tiles" tilewidth="64" tileheight="64" tilecount="29">
   <tile id="0">
    <image width="64" height="64" source="../Gfx/Tiles/block.png"/>
   </tile>
@@ -6041,8 +6089,8 @@
    <tile gid="5"/>
    <tile gid="0"/>
    <tile gid="0"/>
-   <tile gid="28"/>
-   <tile gid="28"/>
+   <tile gid="29"/>
+   <tile gid="29"/>
    <tile gid="5"/>
    <tile gid="5"/>
    <tile gid="5"/>
@@ -6107,9 +6155,9 @@
    <tile gid="0"/>
    <tile gid="0"/>
    <tile gid="28"/>
-   <tile gid="28"/>
-   <tile gid="28"/>
-   <tile gid="28"/>
+   <tile gid="29"/>
+   <tile gid="29"/>
+   <tile gid="29"/>
    <tile gid="28"/>
    <tile gid="28"/>
    <tile gid="0"/>
@@ -6241,7 +6289,7 @@
    <tile gid="0"/>
    <tile gid="0"/>
    <tile gid="0"/>
-   <tile gid="28"/>
+   <tile gid="29"/>
    <tile gid="28"/>
    <tile gid="0"/>
    <tile gid="5"/>
@@ -10262,9 +10310,11 @@
    <tile gid="0"/>
    <tile gid="0"/>
    <tile gid="0"/>
+   <tile gid="42"/>
    <tile gid="0"/>
    <tile gid="0"/>
    <tile gid="0"/>
+   <tile gid="42"/>
    <tile gid="0"/>
    <tile gid="0"/>
    <tile gid="0"/>
@@ -10323,9 +10373,13 @@
    <tile gid="0"/>
    <tile gid="0"/>
    <tile gid="0"/>
+   <tile gid="42"/>
+   <tile gid="42"/>
    <tile gid="0"/>
    <tile gid="0"/>
    <tile gid="0"/>
+   <tile gid="42"/>
+   <tile gid="42"/>
    <tile gid="0"/>
    <tile gid="0"/>
    <tile gid="0"/>
@@ -10383,10 +10437,17 @@
    <tile gid="0"/>
    <tile gid="0"/>
    <tile gid="0"/>
+   <tile gid="42"/>
    <tile gid="0"/>
+   <tile gid="42"/>
    <tile gid="0"/>
+   <tile gid="42"/>
+   <tile gid="42"/>
+   <tile gid="42"/>
+   <tile gid="42"/>
    <tile gid="0"/>
    <tile gid="0"/>
+   <tile gid="42"/>
    <tile gid="0"/>
    <tile gid="0"/>
    <tile gid="0"/>
@@ -10438,10 +10499,19 @@
    <tile gid="0"/>
    <tile gid="0"/>
    <tile gid="0"/>
+   <tile gid="42"/>
+   <tile gid="42"/>
+   <tile gid="42"/>
+   <tile gid="42"/>
    <tile gid="0"/>
    <tile gid="0"/>
+   <tile gid="42"/>
+   <tile gid="42"/>
    <tile gid="0"/>
    <tile gid="0"/>
+   <tile gid="42"/>
+   <tile gid="42"/>
+   <tile gid="42"/>
    <tile gid="0"/>
    <tile gid="0"/>
    <tile gid="0"/>
@@ -10494,12 +10564,17 @@
    <tile gid="0"/>
    <tile gid="0"/>
    <tile gid="0"/>
+   <tile gid="42"/>
    <tile gid="0"/>
    <tile gid="0"/>
+   <tile gid="42"/>
+   <tile gid="42"/>
    <tile gid="0"/>
    <tile gid="0"/>
    <tile gid="0"/>
    <tile gid="0"/>
+   <tile gid="42"/>
+   <tile gid="42"/>
    <tile gid="0"/>
    <tile gid="0"/>
    <tile gid="0"/>
@@ -10553,7 +10628,16 @@
    <tile gid="0"/>
    <tile gid="0"/>
    <tile gid="0"/>
+   <tile gid="42"/>
+   <tile gid="42"/>
+   <tile gid="42"/>
+   <tile gid="42"/>
    <tile gid="0"/>
+   <tile gid="42"/>
+   <tile gid="42"/>
+   <tile gid="42"/>
+   <tile gid="42"/>
+   <tile gid="42"/>
    <tile gid="0"/>
    <tile gid="0"/>
    <tile gid="0"/>
@@ -10610,47 +10694,11 @@
    <tile gid="0"/>
    <tile gid="0"/>
    <tile gid="0"/>
+   <tile gid="42"/>
    <tile gid="0"/>
    <tile gid="0"/>
-   <tile gid="0"/>
-   <tile gid="0"/>
-   <tile gid="0"/>
-   <tile gid="0"/>
-   <tile gid="0"/>
-   <tile gid="0"/>
-   <tile gid="0"/>
-   <tile gid="0"/>
-   <tile gid="0"/>
-   <tile gid="0"/>
-   <tile gid="0"/>
-   <tile gid="0"/>
-   <tile gid="0"/>
-   <tile gid="0"/>
-   <tile gid="0"/>
-   <tile gid="0"/>
-   <tile gid="0"/>
-   <tile gid="0"/>
-   <tile gid="0"/>
-   <tile gid="0"/>
-   <tile gid="0"/>
-   <tile gid="0"/>
-   <tile gid="0"/>
-   <tile gid="0"/>
-   <tile gid="0"/>
-   <tile gid="0"/>
-   <tile gid="0"/>
-   <tile gid="0"/>
-   <tile gid="0"/>
-   <tile gid="0"/>
-   <tile gid="0"/>
-   <tile gid="0"/>
-   <tile gid="0"/>
-   <tile gid="0"/>
-   <tile gid="0"/>
-   <tile gid="0"/>
-   <tile gid="0"/>
-   <tile gid="0"/>
-   <tile gid="0"/>
+   <tile gid="42"/>
+   <tile gid="42"/>
    <tile gid="0"/>
    <tile gid="0"/>
    <tile gid="0"/>
@@ -14427,6 +14475,9 @@
    <tile gid="0"/>
    <tile gid="0"/>
    <tile gid="0"/>
+   <tile gid="33"/>
+   <tile gid="34"/>
+   <tile gid="35"/>
    <tile gid="0"/>
    <tile gid="0"/>
    <tile gid="0"/>
@@ -14437,6 +14488,7 @@
    <tile gid="0"/>
    <tile gid="0"/>
    <tile gid="0"/>
+   <tile gid="29"/>
    <tile gid="0"/>
    <tile gid="0"/>
    <tile gid="0"/>
@@ -14487,13 +14539,9 @@
    <tile gid="0"/>
    <tile gid="0"/>
    <tile gid="0"/>
-   <tile gid="0"/>
-   <tile gid="0"/>
-   <tile gid="0"/>
-   <tile gid="0"/>
-   <tile gid="0"/>
-   <tile gid="0"/>
-   <tile gid="0"/>
+   <tile gid="30"/>
+   <tile gid="31"/>
+   <tile gid="32"/>
    <tile gid="0"/>
    <tile gid="0"/>
    <tile gid="0"/>
@@ -18399,6 +18447,9 @@
    <tile gid="0"/>
    <tile gid="0"/>
    <tile gid="0"/>
+   <tile gid="39"/>
+   <tile gid="40"/>
+   <tile gid="41"/>
    <tile gid="0"/>
    <tile gid="0"/>
    <tile gid="0"/>
@@ -18460,12 +18511,9 @@
    <tile gid="0"/>
    <tile gid="0"/>
    <tile gid="0"/>
-   <tile gid="0"/>
-   <tile gid="0"/>
-   <tile gid="0"/>
-   <tile gid="0"/>
-   <tile gid="0"/>
-   <tile gid="0"/>
+   <tile gid="36"/>
+   <tile gid="37"/>
+   <tile gid="38"/>
    <tile gid="0"/>
    <tile gid="0"/>
    <tile gid="0"/>
@@ -24784,6 +24832,28 @@
     <property name="PositionX" value="2880"/>
     <property name="PositionY" value="704"/>
     <property name="TargetMap" value="Awakening"/>
+   </properties>
+  </object>
+ </objectgroup>
+ <objectgroup name="GameObjects">
+  <object id="8" x="1472" y="2304" width="64" height="64">
+   <properties>
+    <property name="Prefab" value="Bush"/>
+   </properties>
+  </object>
+  <object id="9" x="1536" y="2368" width="64" height="64">
+   <properties>
+    <property name="Prefab" value="Bush"/>
+   </properties>
+  </object>
+  <object id="10" x="1344" y="1984" width="64" height="64">
+   <properties>
+    <property name="Prefab" value="Bush"/>
+   </properties>
+  </object>
+  <object id="11" x="2112" y="1920" width="64" height="64">
+   <properties>
+    <property name="Prefab" value="Bush"/>
    </properties>
   </object>
  </objectgroup>

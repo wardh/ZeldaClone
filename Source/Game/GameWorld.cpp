@@ -79,24 +79,24 @@ bool CGameWorld::HandleKeyboardInput(const CU::PoolPointer<CU::Event>& anEvent)
 	{
 	case eKeyboardKeys::KEY_SPACE:
 	{
-		/*if (keyEvent->myKeyState == eKeyState::DOWN)
+		if (keyEvent->myKeyState == eKeyState::DOWN)
 		{
 
-			GameObject enemy;
-			enemy.AddComponent(new AIControllerComponent(enemy, new WalkTowardsPlayer()));
-			enemy.AddComponent(new CollisionBoxComponent(enemy, eCollisionGroup::ENEMY, { 40, 32 }, { 0,8 }));
-			enemy.AddComponent(new MovementComponent(enemy));
-			enemy.AddComponent(new ModelComponent(enemy, "Data/Gfx/Enemies/misterFish.png", eRenderLayer::ACTORS));
-			StatsStruct stats2;
-			stats2.myMovementSpeed = 100;
-			stats2.myIsFriendly = false;
-			stats2.myMaxHealth = 3;
-			stats2.myDamage = 1;
-			stats2.myLevel = 1;
-			enemy.AddComponent(new StatsComponent(enemy, stats2));
-			enemy.SetPosition(Vector2<float>(rand() % 800, rand() % 800));
-			myGameObjects.Add(enemy);
-		}*/
+			//GameObject enemy;
+			//enemy.AddComponent(new AIControllerComponent(enemy, new WalkTowardsPlayer()));
+			//enemy.AddComponent(new CollisionBoxComponent(enemy, eCollisionGroup::ENEMY, { 40, 32 }, { 0,8 }));
+			//enemy.AddComponent(new MovementComponent(enemy));
+			//enemy.AddComponent(new ModelComponent(enemy, "Data/Gfx/Enemies/misterFish.png", eRenderLayer::ACTORS));
+			//StatsStruct stats2;
+			//stats2.myMovementSpeed = 100;
+			//stats2.myIsFriendly = false;
+			//stats2.myMaxHealth = 3;
+			//stats2.myDamage = 1;
+			//stats2.myLevel = 1;
+			//enemy.AddComponent(new StatsComponent(enemy, stats2));
+			//enemy.SetPosition(Vector2<float>(rand() % 800, rand() % 800));
+			//myGameObjects.Add(enemy);
+		}
 	}
 	break;
 	default:

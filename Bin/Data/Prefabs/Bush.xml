@@ -1,0 +1,6 @@
+<GameObject tag="Bush">
+  <AIControllerComponent behaviour="WalkTowardsPlayer"/>
+  <CollisionBoxComponent group="enemy" sizeX="40" sizeY="32" centerX="0" centerY="8"/>
+  <ModelComponent path="Data/Gfx/Objects/bush.png" layer="actors"/>
+  <StatsComponent movementSpeed="100" isFriendly="false" health="1" damage="0" level="0"/>
+</GameObject>
